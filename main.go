@@ -26,15 +26,42 @@ func init() {
 
 func main() {
 
-	dataFile, _ := os.Open("./data.json")
-	data := make(map[string]map[string][][]utils.Data)
-	byteRes, _ := io.ReadAll(dataFile)
-	json.Unmarshal([]byte(byteRes), &data)
+	dataFile, err := os.Open("./data.json")
+	if err != nil {
+		log.Fatalf("Failed to open data.json: %v", err)
+	}
 	defer dataFile.Close()
-	table, _ := template.ParseFiles("./templates/table.html")
-	home, _ := template.ParseFiles("./templates/home.html")
-	courseNameCode, _ := template.ParseFiles("./templates/course-name-code.html")
-	errorPage, _ := template.ParseFiles("./templates/error.html")
+	
+	data := make(map[string]map[string][][]utils.Data)
+	byteRes, err := io.ReadAll(dataFile)
+	if err != nil {
+		log.Fatalf("Failed to read data.json: %v", err)
+	}
+	
+	err = json.Unmarshal([]byte(byteRes), &data)
+	if err != nil {
+		log.Fatalf("Failed to parse data.json: %v", err)
+	}
+	
+	table, err := template.ParseFiles("./templates/table.html")
+	if err != nil {
+		log.Fatalf("Failed to parse table template: %v", err)
+	}
+	
+	home, err := template.ParseFiles("./templates/home.html")
+	if err != nil {
+		log.Fatalf("Failed to parse home template: %v", err)
+	}
+	
+	courseNameCode, err := template.ParseFiles("./templates/course-name-code.html")
+	if err != nil {
+		log.Fatalf("Failed to parse course-name-code template: %v", err)
+	}
+	
+	errorPage, err := template.ParseFiles("./templates/error.html")
+	if err != nil {
+		log.Fatalf("Failed to parse error template: %v", err)
+	}
 
 	type HomeData struct {
 		Sheets  []string
@@ -62,11 +89,12 @@ func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
-			errorPage.Execute(w, "This page is under construction !!(404)")
+			if err := errorPage.Execute(w, "This page is under construction !!(404)"); err != nil {
+				log.Printf("Error while executing error template: %v", err)
+			}
 			return
 		}
-		err := home.Execute(w, h)
-		if err != nil {
+		if err := home.Execute(w, h); err != nil {
 			log.Printf("Error while executing home template: %v", err)
 		}
 	})
@@ -87,19 +115,25 @@ func main() {
 			}
 		}
 		if flag {
-			errorPage.Execute(w, "Invalid category/class combination")
+			if err := errorPage.Execute(w, "Invalid category/class combination"); err != nil {
+				log.Printf("Error while executing error template: %v", err)
+			}
 			return
 		}
 		data := TimeTableData{
 			Data:      data[sheet][class],
 			ClassName: class,
 		}
-		table.Execute(w, data)
+		if err := table.Execute(w, data); err != nil {
+			log.Printf("Error while executing table template: %v", err)
+		}
 	})
 
 	// handler to serve add course page
 	http.HandleFunc("/course", func(w http.ResponseWriter, r *http.Request) {
-		courseNameCode.Execute(w, h)
+		if err := courseNameCode.Execute(w, h); err != nil {
+			log.Printf("Error while executing course template: %v", err)
+		}
 	})
 
 	fs := http.FileServer(http.Dir("assets/"))

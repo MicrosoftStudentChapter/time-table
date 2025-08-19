@@ -1,38 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{{.ClassName}} Time Table</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>2C65 Time Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
-        background-image: url("/static/table-background.webp");
-        background-size: cover;
+      margin: 0;
+      height: 100vh;
+      background-color: #000; 
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.0978) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.0978) 1px, transparent 1px);
+      background-size: 90px 90px; 
+      background-position: center; 
+      font-family: 'Rubik', sans-serif;
       }
+
       .container {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
+      .tablemain{
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 100px; 
+        text-align: center;
+        margin: 0rem 0.3rem 0.5rem 0.3rem;
+        border-radius: 1rem;
+        background-color: #24272c !important; 
+        color:#ccdaf3!important;
+      }
+      
+      .time{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 100px;
+        text-align: center;
+        margin: 0rem 0.3rem 0.5rem 0.3rem;
+        border-radius: 2rem;
+      }
+    
 
-      /* Center the buttons */
       .button-container {
         margin-top: 20px;
         display: flex;
@@ -100,7 +115,7 @@
         }
 
         footer .text-warning {
-          display: none; /* Removes "Project Contributors" line */
+          display: none;  
         }
 
         footer img {
@@ -132,41 +147,31 @@
         }
 
         footer {
-          max-height: 100px; /* Compress banner height */
+          max-height: 100px;  
         }
       }
-
-
 
     </style>
   </head>
 
   <body>
-    <header
-      style="
+    <header style="
         margin: 1rem auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 95vw;
-      "
-    >
+      ">
       <a class="left" href="https://github.com/MicrosoftStudentChapter/time-table/issues">
-        <img
-          alt="GitHub issues"
-          src="https://img.shields.io/github/issues/MicrosoftStudentChapter/time-table?style=flat&logo=github"
-        />
+        <img alt="GitHub issues" src="https://img.shields.io/github/issues/MicrosoftStudentChapter/time-table?style=flat&amp;logo=github">
       </a>
       <a class="right" href="https://github.com/MicrosoftStudentChapter/time-table">
-        <img
-          alt="GitHub Repo stars"
-          src="https://img.shields.io/github/stars/MicrosoftStudentChapter/time-table?style=flat&logo=github"
-        />
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/MicrosoftStudentChapter/time-table?style=flat&amp;logo=github">
       </a>
     </header>
 
-    <!-- Center the Save as PNG and Print buttons -->
+    
     <div class="button-container">
       <button id="saveAsPng" class="btn btn-primary">Save as PNG</button>
       <button id="printPdf" class="btn btn-success">Print to PDF</button>
@@ -174,74 +179,908 @@
 
     <div class="table-responsive" id="timetable">
       <table class="table table-dark table-hover" id="table">
-        {{range .Data}}
+        
+        <tbody><tr class="row">
+          <td class="col tablemain">Timings</td>
+          <td class="col tablemain">Monday</td>
+          <td class="col tablemain">Tuesday</td>
+          <td class="col tablemain">Wednesday</td>
+          <td class="col tablemain">Thursday</td>
+          <td class="col tablemain">Friday</td>
+          
+        </tr>
+        
         <tr class="row">
-          {{range .}}
-          <td
-            class="bg-{{.Color}} col tablemain"
-            style="
+          
+          <td class="bg-dark col tablemain time">
+            8:00am
+          </td>
+          
+          <td class="bg- col tablemain" style="
               overflow-x: auto;
               overflow-y: auto;
               max-height: 100px;
               text-align: center;
               margin: 0rem 0.3rem 0.5rem 0.3rem;
               border-radius: 0.5rem;
-            "
-          >
-            {{.Course}}
+            ">
+            
           </td>
-          {{end}}
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+              CALCULUS FOR ENGINEERS
+              UMA022
+              LP104
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+           
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
         </tr>
-        {{end}}
-      </table>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+             8:50:am
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+             
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+              CALCULUS FOR ENGINEERS
+              UMA022
+              LP104
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            9:40:am
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+              ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+             CALCULUS FOR ENGINEERS
+              UMA022
+              LP104
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            10:30:am
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+              ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            11:20am
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            12:10pm
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            1:00pm
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            1:50pm
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            2:40pm
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-primary col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            3:30pm
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+          
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            4:20pm
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            CALCULUS FOR ENGINEERS
+            UMA022 
+            F309
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+             
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            ELECTRICAL AND ELECTRONICS ENGINEERING 
+              UES013
+              C201/EE-2 LAB
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            5:10pm
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg- col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-danger col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+        <tr class="row">
+          
+          <td class="bg-dark col tablemain time">
+            6:00pm
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+          <td class="bg-success col tablemain" style="
+              overflow-x: auto;
+              overflow-y: auto;
+              max-height: 100px;
+              text-align: center;
+              margin: 0rem 0.3rem 0.5rem 0.3rem;
+              border-radius: 0.5rem;
+            ">
+            
+          </td>
+          
+        </tr>
+        
+      </tbody></table>
     </div>
 
-    <!-- <footer class="footer mt-2 mb-2 pb-2 pt-2 bg-dark">
-      <p style="text-align: center" class="text-danger">
-        Made by Utkarsh Tripathi &nbsp;
-        <a href="https://github.com/MicrosoftStudentChapter" class="badge badge-success">Github</a>
-        <a
-          href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/"
-          class="badge badge-primary"
-          >Linkedin</a
-        >
-        <a href="https://utkarssh.tech" class="badge badge-dark">Website</a>
-      </p>
-    </footer> -->
+    
 
     <footer class="footer mt-2 mb-2 pb-2 pt-2 bg-dark">
       <p style="text-align: center" class="text-danger">
         Made by Utkarsh Tripathi &nbsp;
-        <a href="https://github.com/utkarsh-1905" class="badge badge-success"
-          >Github</a
-        >
-        <a
-          href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/"
-          class="badge badge-primary"
-          >Linkedin</a
-        >
-        <!-- <a href="https://utkarssh.tech" class="badge badge-dark">Website</a> -->
+        <a href="https://github.com/utkarsh-1905" class="badge badge-success">Github</a>
+        <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" class="badge badge-primary">Linkedin</a>
+        
       </p>
       <p style="text-align: center" class="text-warning">
         Project contributors
       </p>
       <p style="text-align: center">
-        <a
-          href="https://github.com/MicrosoftStudentChapter/time-table/graphs/contributors"
-        >
-          <img src="https://contrib.rocks/image?repo=MicrosoftStudentChapter/time-table" />
+        <a href="https://github.com/MicrosoftStudentChapter/time-table/graphs/contributors">
+          <img src="https://contrib.rocks/image?repo=MicrosoftStudentChapter/time-table">
         </a>
       </p>
     </footer>
 
-    <!-- Add JavaScript for Save as PNG and Print -->
+    
     <script>
-      // Save as PNG logic
+      
       document.getElementById("saveAsPng").addEventListener("click", function () {
         const timetableElement = document.getElementById("timetable");
 
         html2canvas(timetableElement, {
-          backgroundColor: null, // Ensures transparency matches your theme
+          backgroundColor: null, 
         }).then((canvas) => {
           const link = document.createElement("a");
           link.download = "timetable.png";
@@ -252,7 +1091,7 @@
         });
       });
 
-      // Print to PDF logic
+      
       document.getElementById("printPdf").addEventListener("click", function () {
         const originalContent = document.body.innerHTML;
         const printContent = document.getElementById("timetable").outerHTML;
@@ -262,10 +1101,11 @@
 
         window.print();
 
-        // Restore the original content after print
+        
         document.body.innerHTML = originalContent;
         window.location.reload();
       });
     </script>
-  </body>
-</html>
+  
+
+</body></html>

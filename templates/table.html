@@ -19,8 +19,8 @@
       align-items: center;
       padding: 20px;
        background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.0978) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.0978) 1px, transparent 1px);
+        linear-gradient(to right, #ffffff20 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.121) 1px, transparent 1px);
       background-size: 90px 90px; 
       background-position: center; 
 
@@ -39,14 +39,26 @@
     }
 
     /* Timetable Grid */
-    .timetable {
+        .timetable {
       display: grid;
-      grid-template-columns: 120px repeat(5, 1fr);
+      grid-template-columns: minmax(70px, 100px) repeat(5, minmax(80px, 1fr));
       grid-auto-rows: 70px;
       gap: 6px;
       width: 100%;
       max-width: 1400px;
       margin-top: 15px;
+      overflow-x: auto;   
+    }
+    /* Ensure timetable scrolls properly on mobile */
+    .timetable::-webkit-scrollbar {
+      height: 8px;
+    }
+    .timetable::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+    .timetable::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     .time {
@@ -54,7 +66,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
+      border-radius: 18px;
       font-weight: bold;
       font-size: 14px;
       color:#ccdaf3;
@@ -65,9 +77,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
+      border-radius: 20px;
       font-weight: bold;
       color:#ccdaf3;
+      height: 45px;  
+      padding: 4px 10px;
+      height: 45px;
+      align-self: center;
     }
 
     .class {
@@ -84,10 +100,10 @@
     }
       .calculus { 
       background: radial-gradient(circle at center, 
-                  rgba(46, 204, 113, 0.25) 0%,   
+                  rgba(0, 198, 92, 0.6) 5%,   
                   rgba(46, 204, 113, 0.05) 100%  
                 );
-      border: 2px solid hsla(136, 56%, 10%, 0.9);
+      /* border: 2px solid hsla(136, 56%, 10%, 0.9); */
       border-radius: 5px;
       padding: 20px;
       color: white;
@@ -96,10 +112,10 @@
 
     .calculus-red { 
         background: radial-gradient(circle at center, 
-                    rgba(231, 77, 60, 0.3) 0%,    
+                    rgba(225, 0, 4, 0.6) 5%,    
                     rgba(42, 8, 8, 0.95) 100%     
                   );
-        border: 2px solid #2a0808;
+        /* border: 2px solid #2a0808; */
         border-radius: 5px;
         padding: 20px;
         color: white;
@@ -108,10 +124,10 @@
 
     .ee { 
         background: radial-gradient(circle at center, 
-                    rgba(52, 152, 219, 0.25) 0%, 
+                    rgba(67, 70, 248, 0.6) 5%,  
                     rgba(20, 30, 60, 0.95) 100%   
                   );
-        border: 2px solid rgba(20, 30, 60, 0.9);
+        /* border: 2px solid rgba(20, 30, 60, 0.9); */
         border-radius: 5px;
         padding: 20px;
         color: white;
@@ -121,7 +137,7 @@
       .empty { 
         background-color: #24272c;
         border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
+        border-radius: 16px;
         padding: 20px;
         color: white;
         text-align: center;
@@ -140,6 +156,29 @@
     }
 
     footer a { text-decoration: none; }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      .timetable {
+        grid-template-columns: minmax(60px, 80px) repeat(5, minmax(70px, 1fr));
+        font-size: 11px;
+      }
+      .time {
+        font-size: 11px;
+        border-radius: 10px;
+        padding: 2px;
+      }
+      .day {
+        font-size: 11px;
+        border-radius: 10px;
+        padding: 2px 6px;
+        height: 35px;
+      }
+      .class {
+        font-size: 10px;
+        padding: 4px;
+      }
+    }
 
     /* Print */
     @media print {
@@ -297,6 +336,7 @@
   </footer>
 
   <script>
+    //merging empty cells
   function mergeEmptyCellsByDay() {
     const timetable = document.getElementById("timetable");
     const cells = Array.from(timetable.children);

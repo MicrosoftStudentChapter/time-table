@@ -1,491 +1,323 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <title>2C65 Time Table</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-      margin: 0;
-      height: 100vh;
-      background-color: #000; 
-      background-image: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{.ClassName}} Time Table</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: black;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+       background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.0978) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255,255,255,0.0978) 1px, transparent 1px);
       background-size: 90px 90px; 
       background-position: center; 
-      font-family: 'Rubik', sans-serif;
-      }
 
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .tablemain{
-        overflow-x: auto;
-        overflow-y: auto;
-        max-height: 100px; 
+    }
+
+    .button-container {
+      margin: 15px 0;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      border-radius: 12px;
+      padding: 8px 18px;
+      font-weight: 500;
+    }
+
+    /* Timetable Grid */
+    .timetable {
+      display: grid;
+      grid-template-columns: 120px repeat(5, 1fr);
+      grid-auto-rows: 70px;
+      gap: 6px;
+      width: 100%;
+      max-width: 1400px;
+      margin-top: 15px;
+    }
+
+    .time {
+      background: #3b3f45;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      color:#ccdaf3;
+    }
+
+    .day {
+      background: #3b3f45;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-weight: bold;
+      color:#ccdaf3;
+    }
+
+    .class {
+      border-radius: 10px;
+      padding: 6px;
+      font-size: 12px;
+      line-height: 1.3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+    }
+      .calculus { 
+      background: radial-gradient(circle at center, 
+                  rgba(46, 204, 113, 0.25) 0%,   /* andar halka */
+                  rgba(46, 204, 113, 0.05) 100%  /* bahar dark */
+                );
+      border: 2px solid hsla(136, 56%, 10%, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      color: white;
+      text-align: center;
+  }
+
+      .calculus-red { 
+        background: radial-gradient(circle at center, 
+                    rgba(231, 77, 60, 0.3) 0%,    /* andar halka */
+                    rgba(42, 8, 8, 0.95) 100%     /* bahar dark */
+                  );
+        border: 2px solid #2a0808;
+        border-radius: 12px;
+        padding: 20px;
+        color: white;
         text-align: center;
-        margin: 0rem 0.3rem 0.5rem 0.3rem;
-        border-radius: 1rem;
-        background-color: #24272c !important; 
-        color:#ccdaf3!important;
       }
-      
-      .time{
-        display: flex;
-        align-items:center;
-        justify-content: center;
-        overflow-x: auto;
-        overflow-y: auto;
-        max-height: 100px;
+
+      .ee { 
+        background: radial-gradient(circle at center, 
+                    rgba(52, 152, 219, 0.25) 0%,  /* andar halka */
+                    rgba(20, 30, 60, 0.95) 100%   /* bahar dark */
+                  );
+        border: 2px solid rgba(20, 30, 60, 0.9);
+        border-radius: 12px;
+        padding: 20px;
+        color: white;
         text-align: center;
-        margin: 0rem 0.3rem 0.5rem 0.3rem;
-        border-radius: 2rem;
       }
-      
-      .box{
-        overflow-x: auto;
-        overflow-y: auto;
-        max-height: 100px;
+
+      .empty { 
+        background-color: #24272c;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 20px;
+        color: white;
         text-align: center;
-        margin: 0rem 0.3rem 0.5rem 0.3rem;
-        border-radius: 0.78rem;
       }
 
-      .button-container {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
+    /* Footer */
+    footer {
+      margin-top: 25px;
+      text-align: center;
+      background: #141820;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      width: 100%;
+      max-width: 1400px;
+    }
 
-      .table-responsive {
-        padding: 3%;
-        max-width: 90%;
-      }
+    footer a { text-decoration: none; }
 
-      .contribution-banner {
-        background-color: #212529;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px;
-        margin-top: 20px;
-        font-size: 0.9rem;
-      }
+    /* Print */
+    @media print {
+      body { background: white !important; color: black !important; }
+      .timetable { background: none; }
+      .class, .day, .time { border: 1px solid #000 !important; color: #000 !important; background: none !important; }
+      header, .button-container { display: none; }
+    }
+  </style>
+</head>
 
-      @media print {
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: Arial, sans-serif;
-        }
+<body>
+  <header style="margin: 1rem auto; display: flex; justify-content: space-between; width: 95vw;">
+    <a href="https://github.com/MicrosoftStudentChapter/time-table/issues">
+      <img alt="GitHub issues" src="https://img.shields.io/github/issues/MicrosoftStudentChapter/time-table?style=flat&logo=github"/>
+    </a>
+    <a href="https://github.com/MicrosoftStudentChapter/time-table">
+      <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/MicrosoftStudentChapter/time-table?style=flat&logo=github"/>
+    </a>
+  </header>
 
-        @page {
-          size: A4 portrait;
-          margin: 0.5in;
-        }
+  <!-- Buttons -->
+  <div class="button-container">
+    <button id="saveAsPng" class="btn btn-primary">Save as PNG</button>
+    <button id="printPdf" class="btn btn-success">Print to PDF</button>
+  </div>
 
-        .table-responsive {
-          width: 100%;
-          max-width: 100%;
-          overflow: visible;
-        }
+  <!-- Timetable -->
+  <div id="timetable" class="timetable">
+    <!-- Header -->
+    <div></div>
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+    <div class="day">Friday</div>
 
-        .table, .table td {
-          font-size: 11px;
-          padding: 3px;
-          line-height: 1.4;
-        }
+    <!-- Example Rows -->
+    <div class="time">08:00 AM</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
 
-        #timetable {
-          margin-bottom: 5px;
-          page-break-before: auto;
-          page-break-after: auto;
-          max-width: 100%;
-        }
+    <div class="time">08:50 AM</div>
+    <div class="empty"></div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <!-- rest of timetable same as your code -->
 
-        footer {
-          width: 100%;
-          text-align: center;
-          font-size: 8px;
-          margin-top: 10px;
-          padding: 5px 0;
-          line-height: 1;
-          page-break-before: auto;
-        }
+    <!-- 09:40 -->
+    <div class="time">09:40 AM</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="empty"></div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
 
-        footer p {
-          margin: 0;
-        }
+    <!-- 10:30 -->
+    <div class="time">10:30 AM</div>
+    <div class="class calculus-red">CALCULUS<br>UMA022<br>F309</div>
+    <div class="empty"></div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="empty"></div>
+    <div class="class calculus-red">CALCULUS<br>UMA022<br>F309</div>
 
-        footer .text-warning {
-          display: none;  
-        }
+    <!-- 11:20 -->
+    <div class="time">11:20 AM</div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
 
-        footer img {
-          display: block;
-          margin: 0 auto;
-          width: 200px;
-          height: auto;
-        }
+    <!-- 12:10 -->
+    <div class="time">12:10 PM</div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="empty"></div>
+    <div class="class calculus-red">CALCULUS<br>UMA022<br>F309</div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
 
-        footer .text-danger {
-          font-size: 10px;
-          line-height: 1.2;
-          margin-bottom: 5px;
-        }
+    <!-- 01:00 -->
+    <div class="time">01:00 PM</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
 
-        #timetable {
-          margin-bottom: 5px;
-          page-break-before: auto; 
-          page-break-after: auto;
-        }
+    <!-- 01:50 -->
+    <div class="time">01:50 PM</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
 
-        header {
-          display: none;
-        }
+    <!-- 02:40 -->
+    <div class="time">02:40 PM</div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="empty"></div>
 
-        body {
-          padding: 0;
-          margin: 0;
-        }
+    <!-- 03:30 -->
+    <div class="time">03:30 PM</div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
 
-        footer {
-          max-height: 100px;  
-        }
-      }
+    <!-- 04:20 -->
+    <div class="time">04:20 PM</div>
+    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="empty"></div>
+    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
+    <div class="empty"></div>
 
-    </style>
-  </head>
+    <!-- 05:10 -->
+    <div class="time">05:10 PM</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
 
-  <body>
-    <header style="
-        margin: 1rem auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 95vw;
-      ">
-      <a class="left" href="https://github.com/MicrosoftStudentChapter/time-table/issues">
-        <img alt="GitHub issues" src="https://img.shields.io/github/issues/MicrosoftStudentChapter/time-table?style=flat&amp;logo=github">
-      </a>
-      <a class="right" href="https://github.com/MicrosoftStudentChapter/time-table">
-        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/MicrosoftStudentChapter/time-table?style=flat&amp;logo=github">
-      </a>
-    </header>
+    <!-- 06:00 -->
+    <div class="time">06:00 PM</div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
 
-    
-    <div class="button-container">
-      <button id="saveAsPng" class="btn btn-primary">Save as PNG</button>
-      <button id="printPdf" class="btn btn-success">Print to PDF</button>
-    </div>
 
-    <div class="table-responsive" id="timetable">
-      <table class="table table-dark table-hover" id="table">
-        
-        <tbody><tr class="row">
-          <td class="col tablemain">Timings</td>
-          <td class="col tablemain">Monday</td>
-          <td class="col tablemain">Tuesday</td>
-          <td class="col tablemain">Wednesday</td>
-          <td class="col tablemain">Thursday</td>
-          <td class="col tablemain">Friday</td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">8:00am</td>
-          <td class="col tablemain box" ></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-              CALCULUS FOR ENGINEERS
-              UMA022
-              LP104
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">8:50:am</td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-              CALCULUS FOR ENGINEERS
-              UMA022
-              LP104
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <tr class="row">
-          <td class="col tablemain time">9:40am</td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-             ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-            C201/EE-2 LAB
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-             CALCULUS FOR ENGINEERS
-             UMA022
-             LP104
-         </td>
-        </tr>
 
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">10:30:am</td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain box">  
-          </td>
-          <td class="col tablemain box">
-              ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">11:20am</td>
-          <td class="col tablemain box">
-            ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain box"></td>     
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">12:10pm</td>
-          <td class="col tablemain box">
-            ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain box"></td>     
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain box">
-            ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">1:00pm</td>          
-          <td class="col tablemain box"></td>          
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">1:50pm</td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>        
-          <td class="col tablemain box"></td>        
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">2:40pm</td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">3:30pm</td>
-          <td class="col tablemain">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain">
-            ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          <td class="col tablemain"></td>
-          <td class="col tablemain"></td>
-          <td class="col tablemain"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">4:20pm</td>
-          <td class="col tablemain box">
-            CALCULUS FOR ENGINEERS
-            UMA022 
-            F309
-          </td>
-          <td class="col tablemain box">
-            ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box">
-            ELECTRICAL AND ELECTRONICS ENGINEERING 
-              UES013
-              C201/EE-2 LAB
-          </td>
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">5:10pm</td>
-          <td class="col tablemain box"></td>     
-          <td class="col tablemain box"></td>        
-          <td class="col tablemain box"></td>        
-          <td class="col tablemain box"></td>         
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-        <tr class="row">
-          
-          <td class="col tablemain time">
-            6:00pm
-          </td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          <td class="col tablemain box"></td>
-          
-        </tr>
-        
-      </tbody></table>
-    </div>
+  </div>
 
-    
+  <!-- Footer -->
+  <footer>
+    <p class="text-danger">
+      Made by Utkarsh Tripathi &nbsp;
+      <a href="https://github.com/utkarsh-1905" class="badge bg-success">Github</a>
+      <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" class="badge bg-primary">Linkedin</a>
+    </p>
+    <p class="text-warning">Project contributors</p>
+    <a href="https://github.com/MicrosoftStudentChapter/time-table/graphs/contributors">
+      <img src="https://contrib.rocks/image?repo=MicrosoftStudentChapter/time-table"/>
+    </a>
+  </footer>
 
-    <footer class="footer mt-2 mb-2 pb-2 pt-2 bg-dark">
-      <p style="text-align: center" class="text-danger">
-        Made by Utkarsh Tripathi &nbsp;
-        <a href="https://github.com/utkarsh-1905" class="badge badge-success">Github</a>
-        <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" class="badge badge-primary">Linkedin</a>
-        
-      </p>
-      <p style="text-align: center" class="text-warning">
-        Project contributors
-      </p>
-      <p style="text-align: center">
-        <a href="https://github.com/MicrosoftStudentChapter/time-table/graphs/contributors">
-          <img src="https://contrib.rocks/image?repo=MicrosoftStudentChapter/time-table">
-        </a>
-      </p>
-    </footer>
-
-    
-    <script>
-      
-      document.getElementById("saveAsPng").addEventListener("click", function () {
-        const timetableElement = document.getElementById("timetable");
-
-        html2canvas(timetableElement, {
-          backgroundColor: null, 
-        }).then((canvas) => {
-          const link = document.createElement("a");
-          link.download = "timetable.png";
-          link.href = canvas.toDataURL("image/png");
-          link.click();
-        }).catch((error) => {
-          console.error("Error saving PNG:", error);
-        });
+  <script>
+    document.getElementById("saveAsPng").addEventListener("click", function () {
+      const timetableElement = document.getElementById("timetable");
+      html2canvas(timetableElement, { backgroundColor: null }).then((canvas) => {
+        const link = document.createElement("a");
+        link.download = "timetable.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
       });
+    });
 
-      
-      document.getElementById("printPdf").addEventListener("click", function () {
-        const originalContent = document.body.innerHTML;
-        const printContent = document.getElementById("timetable").outerHTML;
-        const footerContent = document.querySelector("footer").outerHTML;
-
-        document.body.innerHTML = printContent + footerContent;
-
-        window.print();
-
-        
-        document.body.innerHTML = originalContent;
-        window.location.reload();
-      });
-    </script>
-  
-
-</body></html>
+    document.getElementById("printPdf").addEventListener("click", function () {
+      const originalContent = document.body.innerHTML;
+      const printContent = document.getElementById("timetable").outerHTML;
+      const footerContent = document.querySelector("footer").outerHTML;
+      document.body.innerHTML = printContent + footerContent;
+      window.print();
+      document.body.innerHTML = originalContent;
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>

@@ -84,35 +84,35 @@
     }
       .calculus { 
       background: radial-gradient(circle at center, 
-                  rgba(46, 204, 113, 0.25) 0%,   /* andar halka */
-                  rgba(46, 204, 113, 0.05) 100%  /* bahar dark */
+                  rgba(46, 204, 113, 0.25) 0%,   
+                  rgba(46, 204, 113, 0.05) 100%  
                 );
       border: 2px solid hsla(136, 56%, 10%, 0.9);
-      border-radius: 12px;
+      border-radius: 5px;
       padding: 20px;
       color: white;
       text-align: center;
-  }
+     }
 
-      .calculus-red { 
+    .calculus-red { 
         background: radial-gradient(circle at center, 
-                    rgba(231, 77, 60, 0.3) 0%,    /* andar halka */
-                    rgba(42, 8, 8, 0.95) 100%     /* bahar dark */
+                    rgba(231, 77, 60, 0.3) 0%,    
+                    rgba(42, 8, 8, 0.95) 100%     
                   );
         border: 2px solid #2a0808;
-        border-radius: 12px;
+        border-radius: 5px;
         padding: 20px;
         color: white;
         text-align: center;
-      }
+    }
 
-      .ee { 
+    .ee { 
         background: radial-gradient(circle at center, 
-                    rgba(52, 152, 219, 0.25) 0%,  /* andar halka */
-                    rgba(20, 30, 60, 0.95) 100%   /* bahar dark */
+                    rgba(52, 152, 219, 0.25) 0%, 
+                    rgba(20, 30, 60, 0.95) 100%   
                   );
         border: 2px solid rgba(20, 30, 60, 0.9);
-        border-radius: 12px;
+        border-radius: 5px;
         padding: 20px;
         color: white;
         text-align: center;
@@ -121,7 +121,7 @@
       .empty { 
         background-color: #24272c;
         border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
+        border-radius: 20px;
         padding: 20px;
         color: white;
         text-align: center;
@@ -281,8 +281,6 @@
     <div class="empty"></div>
     <div class="empty"></div>
 
-
-
   </div>
 
   <!-- Footer -->
@@ -299,25 +297,71 @@
   </footer>
 
   <script>
-    document.getElementById("saveAsPng").addEventListener("click", function () {
-      const timetableElement = document.getElementById("timetable");
-      html2canvas(timetableElement, { backgroundColor: null }).then((canvas) => {
-        const link = document.createElement("a");
-        link.download = "timetable.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-      });
-    });
+  function mergeEmptyCellsByDay() {
+    const timetable = document.getElementById("timetable");
+    const cells = Array.from(timetable.children);
 
-    document.getElementById("printPdf").addEventListener("click", function () {
-      const originalContent = document.body.innerHTML;
-      const printContent = document.getElementById("timetable").outerHTML;
-      const footerContent = document.querySelector("footer").outerHTML;
-      document.body.innerHTML = printContent + footerContent;
-      window.print();
-      document.body.innerHTML = originalContent;
-      window.location.reload();
+    const columns = 6; 
+    const rows = [];
+
+    for (let i = 0; i < cells.length; i += columns) {
+      rows.push(cells.slice(i, i + columns));
+    }
+
+    for (let col = 1; col < columns; col++) {
+      let i = 1;
+      while (i < rows.length) {
+        if (rows[i][col] && rows[i][col].classList.contains("empty")) {
+          let spanCount = 1;
+          let j = i + 1;
+
+          while (
+            j < rows.length &&
+            rows[j][col] &&
+            rows[j][col].classList.contains("empty")
+          ) {
+            spanCount++;
+            j++;
+          }
+
+          rows[i][col].style.gridRow = `span ${spanCount}`;
+
+          for (let k = i + 1; k < j; k++) {
+            rows[k][col].remove();
+          }
+
+          i = j;
+        } else {
+          i++;
+        }
+      }
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", mergeEmptyCellsByDay);
+
+  // Save PNG
+  document.getElementById("saveAsPng").addEventListener("click", function () {
+    const timetableElement = document.getElementById("timetable");
+    html2canvas(timetableElement, { backgroundColor: null }).then((canvas) => {
+      const link = document.createElement("a");
+      link.download = "timetable.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
     });
-  </script>
+  });
+
+  // Print PDF
+  document.getElementById("printPdf").addEventListener("click", function () {
+    const originalContent = document.body.innerHTML;
+    const printContent = document.getElementById("timetable").outerHTML;
+    const footerContent = document.querySelector("footer").outerHTML;
+    document.body.innerHTML = printContent + footerContent;
+    window.print();
+    document.body.innerHTML = originalContent;
+    window.location.reload();
+  });
+</script>
+
 </body>
 </html>

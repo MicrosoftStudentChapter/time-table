@@ -254,66 +254,29 @@
     </footer>
 
     <script>
-      document.getElementById("saveAsPng").addEventListener("click", function () {
-        const timetableElement = document.getElementById("timetable");
-        html2canvas(timetableElement, { backgroundColor: null })
-          .then((canvas) => {
-            const link = document.createElement("a");
-            link.download = "timetable.png";
-            link.href = canvas.toDataURL("image/png");
-            link.click();
-          }).catch((error) => {
-            console.error("Error saving PNG:", error);
-          });
-      });
+    document.getElementById("saveAsPng").addEventListener("click", function () {
+      const timetableElement = document.getElementById("table"); // fixed id
+      html2canvas(timetableElement, { backgroundColor: "#000" }) // better visibility
+        .then((canvas) => {
+          const link = document.createElement("a");
+          link.download = "timetable.png";
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        })
+        .catch((error) => {
+          console.error("Error saving PNG:", error);
+        });
+    });
 
-      document.getElementById("printPdf").addEventListener("click", function () {
-        const originalContent = document.body.innerHTML;
-        const printContent = document.getElementById("timetable").outerHTML;
-        const footerContent = document.querySelector("footer").outerHTML;
-        document.body.innerHTML = printContent + footerContent;
-        window.print();
-        document.body.innerHTML = originalContent;
-        window.location.reload();
-      });
+    document.getElementById("printPdf").addEventListener("click", function () {
+      const originalContent = document.body.innerHTML;
+      const printContent = document.getElementById("table").outerHTML; // fixed id
+      const footerContent = document.querySelector("footer").outerHTML;
+      document.body.innerHTML = printContent + footerContent;
+      window.print();
+      document.body.innerHTML = originalContent;
+    });
+  </script>
 
-      // --- Vertical Merge Script ---
-      document.addEventListener("DOMContentLoaded", function() {
-        const table = document.getElementById("table");
-        if (!table) return;
-
-        const rows = table.querySelectorAll("tr");
-        const cols = rows[0].children.length;
-
-        for (let col = 1; col < cols; col++) {
-          let startRow = null;
-          let spanCount = 0;
-
-          for (let row = 0; row <= rows.length; row++) {
-            const cell = row < rows.length ? rows[row].children[col] : null;
-            const isEmpty = cell && cell.classList.contains("empty");
-
-            if (isEmpty) {
-              if (startRow === null) {
-                startRow = row;
-                spanCount = 1;
-              } else {
-                spanCount++;
-              }
-            } else {
-              if (startRow !== null && spanCount > 1) {
-                const firstCell = rows[startRow].children[col];
-                firstCell.setAttribute("rowspan", spanCount);
-                for (let r = startRow + 1; r < startRow + spanCount; r++) {
-                  rows[r].children[col].remove();
-                }
-              }
-              startRow = null;
-              spanCount = 0;
-            }
-          }
-        }
-      });
-    </script>
   </body>
 </html>

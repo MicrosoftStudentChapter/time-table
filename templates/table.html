@@ -64,17 +64,16 @@
       }
 
       .header-day {
-      background: #3b3f45 !important;
-      font-weight: bold !important;
-      color: #CFDDF7 !important;
-    }
+        background: #3b3f45 !important;
+        font-weight: bold !important;
+        color: #CFDDF7 !important;
+      }
 
-    .header-time {
-      background: #3b3f45 !important;
-      font-weight: bold !important;
-      color: #CFDDF7 !important;
-    }
-
+      .header-time {
+        background: #3b3f45 !important;
+        font-weight: bold !important;
+        color: #CFDDF7 !important;
+      }
 
       /* Timetable container */
       .table-responsive {
@@ -90,14 +89,14 @@
         border-spacing: 10px;
         background: transparent;
         width: 100%;
-        table-layout: fixed; /* forces equal widths */
+        table-layout: fixed;
       }
 
       .table td {
         border: none;
         border-radius: 12px;
         padding: 12px;
-        font-size: clamp(0.6rem, 1.5vw, 0.95rem); /* scales font with screen */
+        font-size: clamp(0.6rem, 1.5vw, 0.95rem);
         font-weight: 500;
         text-align: center;
         color: #f1f1f1;
@@ -107,18 +106,21 @@
         height: 100%;
       }
 
-      /* Flex inside each cell to center content */
       .table td div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 60px; /* cells won't collapse too small */
-        padding: 5px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      padding: 5px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;          
+      text-align: center;
+      font-size: clamp(0.55rem, 1.2vw, 0.85rem);  /* auto shrink on small screens */
+      line-height: 1.2;
+    }
 
-      /* Hover effect */
+
       .table td:hover {
         transform: scale(1.03);
         box-shadow: 0 6px 16px rgba(0,0,0,0.4);
@@ -148,6 +150,43 @@
       }
       footer a { color: #4da8ff; text-decoration: none; font-weight: 500; }
       footer a:hover { text-decoration: underline; }
+
+      /* responsive contributors images  */
+     footer p img {
+      max-width: 90%;      
+      height: auto;        
+      display: block;      
+      margin: 0 auto;      
+    }
+
+       /* ultra-small screens  */
+      @media (max-width: 400px) {
+        footer p img {
+          max-width: 100%;   
+        }
+      }
+
+
+      @media (max-width: 600px) {
+      .table td div {
+        font-size: 0.5rem;   
+        padding: 3px;
+        line-height: 1.1;
+      }
+    }
+
+      /* for ultra-small screens  */
+      @media (max-width: 400px) {
+        .table td {
+          padding: 6px 4px; 
+        }
+        .table td div {
+          font-size: 0.4rem; 
+          word-break: break-word; 
+          line-height: 1.05;
+        }
+      }
+
 
       @media print {
         body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
@@ -181,36 +220,24 @@
     </div>
 
     <table class="table table-dark table-hover" id="table">
-    {{range $rowIndex, $row := .Data}}
-    <tr>
-      {{range $colIndex, $cell := $row}}
-        {{if eq $cell.Color "dark"}}
-          {{if eq $rowIndex 0}}
-            <!-- Top header row -->
-            <td class="header-day">
-              <div>{{$cell.Course}}</div>
-            </td>
-          {{else if eq $colIndex 0}}
-            <!-- First column timings -->
-            <td class="header-time">
-              <div>{{$cell.Course}}</div>
-            </td>
+      {{range $rowIndex, $row := .Data}}
+      <tr>
+        {{range $colIndex, $cell := $row}}
+          {{if eq $cell.Color "dark"}}
+            {{if eq $rowIndex 0}}
+              <td class="header-day"><div>{{$cell.Course}}</div></td>
+            {{else if eq $colIndex 0}}
+              <td class="header-time"><div>{{$cell.Course}}</div></td>
+            {{else}}
+              <td class="bg-dark empty"><div>{{$cell.Course}}</div></td>
+            {{end}}
           {{else}}
-            <!-- Any other dark cell -->
-            <td class="bg-dark">
-              <div>{{$cell.Course}}</div>
-            </td>
+            <td class="bg-{{$cell.Color}}"><div>{{$cell.Course}}</div></td>
           {{end}}
-        {{else}}
-          <!-- Normal subject cell -->
-          <td class="bg-{{$cell.Color}}">
-            <div>{{$cell.Course}}</div>
-          </td>
         {{end}}
+      </tr>
       {{end}}
-    </tr>
-    {{end}}
-  </table>
+    </table>
 
     <footer class="footer mt-2 mb-2 pb-2 pt-2 bg-dark">
       <p style="text-align: center" class="text-danger">
@@ -248,6 +275,44 @@
         window.print();
         document.body.innerHTML = originalContent;
         window.location.reload();
+      });
+
+      // --- Vertical Merge Script ---
+      document.addEventListener("DOMContentLoaded", function() {
+        const table = document.getElementById("table");
+        if (!table) return;
+
+        const rows = table.querySelectorAll("tr");
+        const cols = rows[0].children.length;
+
+        for (let col = 1; col < cols; col++) {
+          let startRow = null;
+          let spanCount = 0;
+
+          for (let row = 0; row <= rows.length; row++) {
+            const cell = row < rows.length ? rows[row].children[col] : null;
+            const isEmpty = cell && cell.classList.contains("empty");
+
+            if (isEmpty) {
+              if (startRow === null) {
+                startRow = row;
+                spanCount = 1;
+              } else {
+                spanCount++;
+              }
+            } else {
+              if (startRow !== null && spanCount > 1) {
+                const firstCell = rows[startRow].children[col];
+                firstCell.setAttribute("rowspan", spanCount);
+                for (let r = startRow + 1; r < startRow + spanCount; r++) {
+                  rows[r].children[col].remove();
+                }
+              }
+              startRow = null;
+              spanCount = 0;
+            }
+          }
+        }
       });
     </script>
   </body>

@@ -63,6 +63,19 @@
         box-shadow: 0 6px 14px rgba(0,0,0,0.5);
       }
 
+      .header-day {
+      background: #3b3f45 !important;
+      font-weight: bold !important;
+      color: #CFDDF7 !important;
+    }
+
+    .header-time {
+      background: #3b3f45 !important;
+      font-weight: bold !important;
+      color: #CFDDF7 !important;
+    }
+
+
       /* Timetable container */
       .table-responsive {
         padding: 2%;
@@ -112,7 +125,7 @@
       }
 
       /* Color themes for subjects */
-      .bg-success { background: blue !important; }
+      .bg-success { background: #24272C !important; }
       .bg-danger {
         background: radial-gradient(circle at center, rgba(0,198,92,0.6) 5%, rgba(46,204,113,0.05) 100%) !important;
       }
@@ -167,25 +180,37 @@
       <button id="printPdf" class="btn btn-success">Print to PDF</button>
     </div>
 
-    <div class="table-responsive" id="timetable">
-      <table class="table table-dark table-hover" id="table">
-        {{range .Data}}
-        <tr>
-          {{range .}}
-            {{if .Course}}
-            <td class="bg-{{.Color}}">
-              <div>{{.Course}}</div>
+    <table class="table table-dark table-hover" id="table">
+    {{range $rowIndex, $row := .Data}}
+    <tr>
+      {{range $colIndex, $cell := $row}}
+        {{if eq $cell.Color "dark"}}
+          {{if eq $rowIndex 0}}
+            <!-- Top header row -->
+            <td class="header-day">
+              <div>{{$cell.Course}}</div>
             </td>
-            {{else}}
-            <td class="bg-dark empty">
-              <div></div>
+          {{else if eq $colIndex 0}}
+            <!-- First column timings -->
+            <td class="header-time">
+              <div>{{$cell.Course}}</div>
             </td>
-            {{end}}
+          {{else}}
+            <!-- Any other dark cell -->
+            <td class="bg-dark">
+              <div>{{$cell.Course}}</div>
+            </td>
           {{end}}
-        </tr>
+        {{else}}
+          <!-- Normal subject cell -->
+          <td class="bg-{{$cell.Color}}">
+            <div>{{$cell.Course}}</div>
+          </td>
         {{end}}
-      </table>
-    </div>
+      {{end}}
+    </tr>
+    {{end}}
+  </table>
 
     <footer class="footer mt-2 mb-2 pb-2 pt-2 bg-dark">
       <p style="text-align: center" class="text-danger">

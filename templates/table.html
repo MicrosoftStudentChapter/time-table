@@ -1,433 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{.ClassName}} Time Table</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    body {
-      font-family: 'Rubik', sans-serif;
-      background: black;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-       background-image: 
-        linear-gradient(to right, #ffffff20 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.121) 1px, transparent 1px);
-      background-size: 90px 90px; 
-      background-position: center; 
-
-    }
-
-    .button-container {
-      margin: 15px 0;
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn {
-      border-radius: 12px;
-      padding: 8px 18px;
-      font-weight: 500;
-    }
-
-    /* Timetable Grid */
-        .timetable {
-      display: grid;
-      grid-template-columns: minmax(70px, 100px) repeat(5, minmax(80px, 1fr));
-      grid-auto-rows: 70px;
-      gap: 6px;
-      width: 100%;
-      max-width: 1400px;
-      margin-top: 15px;
-      overflow-x: auto;   
-    }
-    /* Ensure timetable scrolls properly on mobile */
-    .timetable::-webkit-scrollbar {
-      height: 8px;
-    }
-    .timetable::-webkit-scrollbar-thumb {
-      background: #444;
-      border-radius: 10px;
-    }
-    .timetable::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .time {
-      background: #3b3f45;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      font-weight: bold;
-      font-size: 14px;
-      color:#ccdaf3;
-    }
-
-    .day {
-      background: #3b3f45;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      font-weight: bold;
-      color:#ccdaf3;
-      height: 45px;  
-      padding: 4px 10px;
-      height: 45px;
-      align-self: center;
-    }
-
-    .class {
-      border-radius: 10px;
-      padding: 6px;
-      font-size: 12px;
-      line-height: 1.3;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      font-weight: bold;
-      color: #fff;
-    }
-      .calculus { 
-      background: radial-gradient(circle at center, 
-                  rgba(0, 198, 92, 0.6) 5%,   
-                  rgba(46, 204, 113, 0.05) 100%  
-                );
-      /* border: 2px solid hsla(136, 56%, 10%, 0.9); */
-      border-radius: 5px;
-      padding: 20px;
-      color: white;
-      text-align: center;
-     }
-
-    .calculus-red { 
-        background: radial-gradient(circle at center, 
-                    rgba(225, 0, 4, 0.6) 5%,    
-                    rgba(42, 8, 8, 0.95) 100%     
-                  );
-        /* border: 2px solid #2a0808; */
-        border-radius: 5px;
-        padding: 20px;
-        color: white;
-        text-align: center;
-    }
-
-    .ee { 
-        background: radial-gradient(circle at center, 
-                    rgba(67, 70, 248, 0.6) 5%,  
-                    rgba(20, 30, 60, 0.95) 100%   
-                  );
-        /* border: 2px solid rgba(20, 30, 60, 0.9); */
-        border-radius: 5px;
-        padding: 20px;
-        color: white;
-        text-align: center;
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{.ClassName}} Time Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background: black;
+        background-image: 
+          linear-gradient(to right, #ffffff20 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.121) 1px, transparent 1px);
+        background-size: 40px 40px;
+        font-family: "Rubik", sans-serif !important;
+        color: #fff;
+        margin: 0;
+        padding: 0;
       }
 
-      .empty { 
-        background-color: #24272c;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Buttons */
+      .button-container {
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border-radius: 12px;
+        padding: 10px 18px;
+        font-weight: 500;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+      }
+
+      /* Timetable container */
+      .table-responsive {
+        padding: 2%;
+        max-width: 100%;
         border-radius: 16px;
-        padding: 20px;
-        color: white;
+        overflow-x: auto;
+      }
+
+      /* Table styling */
+      .table {
+        border-collapse: separate;
+        border-spacing: 10px;
+        background: transparent;
+        width: 100%;
+        table-layout: fixed; /* forces equal widths */
+      }
+
+      .table td {
+        border: none;
+        border-radius: 12px;
+        padding: 12px;
+        font-size: clamp(0.6rem, 1.5vw, 0.95rem); /* scales font with screen */
+        font-weight: 500;
         text-align: center;
+        color: #f1f1f1;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        vertical-align: middle;
+        height: 100%;
       }
 
-    /* Footer */
-    footer {
-      margin-top: 25px;
-      text-align: center;
-      background: #141820;
-      padding: 12px;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      width: 100%;
-      max-width: 1400px;
-    }
-
-    footer a { text-decoration: none; }
-
-    /* Mobile tweaks */
-@media (max-width: 768px) {
-  .timetable {
-    grid-template-columns: minmax(45px, 60px) repeat(5, minmax(55px, 1fr));
-    grid-auto-rows: 55px; /* rows bhi chhoti */
-    font-size: 10px;
-  }
-  .time {
-    font-size: 10px;
-    border-radius: 8px;
-    padding: 2px;
-  }
-  .day {
-    font-size: 10px;
-    border-radius: 8px;
-    padding: 2px 4px;
-    height: 30px;
-    align-self: center;
-  }
-  .class {
-    font-size: 9px;
-    padding: 3px;
-    line-height: 1.2;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 480px) {
-  .timetable {
-    grid-template-columns: minmax(40px, 50px) repeat(5, minmax(50px, 1fr));
-    grid-auto-rows: 50px;
-    font-size: 9px;
-    gap: 4px;
-  }
-  .time {
-    font-size: 9px;
-    padding: 1px;
-  }
-  .day {
-    font-size: 9px;
-    padding: 2px 3px;
-    height: 28px;
-  }
-  .class {
-    font-size: 8px;
-    padding: 2px;
-  }
-}
-
-    /* Print */
-    @media print {
-      body { background: white !important; color: black !important; }
-      .timetable { background: none; }
-      .class, .day, .time { border: 1px solid #000 !important; color: #000 !important; background: none !important; }
-      header, .button-container { display: none; }
-    }
-  </style>
-</head>
-
-<body>
-  <header style="margin: 1rem auto; display: flex; justify-content: space-between; width: 95vw;">
-    <a href="https://github.com/MicrosoftStudentChapter/time-table/issues">
-      <img alt="GitHub issues" src="https://img.shields.io/github/issues/MicrosoftStudentChapter/time-table?style=flat&logo=github"/>
-    </a>
-    <a href="https://github.com/MicrosoftStudentChapter/time-table">
-      <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/MicrosoftStudentChapter/time-table?style=flat&logo=github"/>
-    </a>
-  </header>
-
-  <!-- Buttons -->
-  <div class="button-container">
-    <button id="saveAsPng" class="btn btn-primary">Save as PNG</button>
-    <button id="printPdf" class="btn btn-success">Print to PDF</button>
-  </div>
-
-  <!-- Timetable -->
-  <div id="timetable" class="timetable">
-    <!-- Header -->
-    <div></div>
-    <div class="day">Monday</div>
-    <div class="day">Tuesday</div>
-    <div class="day">Wednesday</div>
-    <div class="day">Thursday</div>
-    <div class="day">Friday</div>
-
-    <!-- Example Rows -->
-    <div class="time">08:00 AM</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-
-    <div class="time">08:50 AM</div>
-    <div class="empty"></div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <!-- rest of timetable same as your code -->
-
-    <!-- 09:40 -->
-    <div class="time">09:40 AM</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="empty"></div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-
-    <!-- 10:30 -->
-    <div class="time">10:30 AM</div>
-    <div class="class calculus-red">CALCULUS<br>UMA022<br>F309</div>
-    <div class="empty"></div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="empty"></div>
-    <div class="class calculus-red">CALCULUS<br>UMA022<br>F309</div>
-
-    <!-- 11:20 -->
-    <div class="time">11:20 AM</div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-
-    <!-- 12:10 -->
-    <div class="time">12:10 PM</div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="empty"></div>
-    <div class="class calculus-red">CALCULUS<br>UMA022<br>F309</div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-
-    <!-- 01:00 -->
-    <div class="time">01:00 PM</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-
-    <!-- 01:50 -->
-    <div class="time">01:50 PM</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-
-    <!-- 02:40 -->
-    <div class="time">02:40 PM</div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="empty"></div>
-
-    <!-- 03:30 -->
-    <div class="time">03:30 PM</div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-
-    <!-- 04:20 -->
-    <div class="time">04:20 PM</div>
-    <div class="class calculus">CALCULUS<br>UMA022<br>LP104</div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="empty"></div>
-    <div class="class ee">ELECTRICAL<br>UES013<br>C201 LAB</div>
-    <div class="empty"></div>
-
-    <!-- 05:10 -->
-    <div class="time">05:10 PM</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-
-    <!-- 06:00 -->
-    <div class="time">06:00 PM</div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p class="text-danger">
-      Made by Utkarsh Tripathi &nbsp;
-      <a href="https://github.com/utkarsh-1905" class="badge bg-success">Github</a>
-      <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" class="badge bg-primary">Linkedin</a>
-    </p>
-    <p class="text-warning">Project contributors</p>
-    <a href="https://github.com/MicrosoftStudentChapter/time-table/graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=MicrosoftStudentChapter/time-table"/>
-    </a>
-  </footer>
-
-  <script>
-    //merging empty cells
-  function mergeEmptyCellsByDay() {
-    const timetable = document.getElementById("timetable");
-    const cells = Array.from(timetable.children);
-
-    const columns = 6; 
-    const rows = [];
-
-    for (let i = 0; i < cells.length; i += columns) {
-      rows.push(cells.slice(i, i + columns));
-    }
-
-    for (let col = 1; col < columns; col++) {
-      let i = 1;
-      while (i < rows.length) {
-        if (rows[i][col] && rows[i][col].classList.contains("empty")) {
-          let spanCount = 1;
-          let j = i + 1;
-
-          while (
-            j < rows.length &&
-            rows[j][col] &&
-            rows[j][col].classList.contains("empty")
-          ) {
-            spanCount++;
-            j++;
-          }
-
-          rows[i][col].style.gridRow = `span ${spanCount}`;
-
-          for (let k = i + 1; k < j; k++) {
-            rows[k][col].remove();
-          }
-
-          i = j;
-        } else {
-          i++;
-        }
+      /* Flex inside each cell to center content */
+      .table td div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60px; /* cells won't collapse too small */
+        padding: 5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
-    }
-  }
 
-  window.addEventListener("DOMContentLoaded", mergeEmptyCellsByDay);
+      /* Hover effect */
+      .table td:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      }
 
-  // Save PNG
-  document.getElementById("saveAsPng").addEventListener("click", function () {
-    const timetableElement = document.getElementById("timetable");
-    html2canvas(timetableElement, { backgroundColor: null }).then((canvas) => {
-      const link = document.createElement("a");
-      link.download = "timetable.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    });
-  });
+      /* Color themes for subjects */
+      .bg-success { background: blue !important; }
+      .bg-danger {
+        background: radial-gradient(circle at center, rgba(0,198,92,0.6) 5%, rgba(46,204,113,0.05) 100%) !important;
+      }
+      .bg-primary {
+        background: radial-gradient(circle at center, rgba(225,0,4,0.6) 5%, rgba(42,8,8,0.95) 100%)!important;
+      }
+      .bg-warning {
+        background: radial-gradient(circle at center, rgba(67,70,248,0.6) 5%, rgba(20,30,60,0.95) 100%)!important;
+      }
+      .bg-dark { background: #24272c !important; }
+      .bg-info { background: linear-gradient(135deg, #00c6ff, #0072ff) !important; }
 
-  // Print PDF
-  document.getElementById("printPdf").addEventListener("click", function () {
-    const originalContent = document.body.innerHTML;
-    const printContent = document.getElementById("timetable").outerHTML;
-    const footerContent = document.querySelector("footer").outerHTML;
-    document.body.innerHTML = printContent + footerContent;
-    window.print();
-    document.body.innerHTML = originalContent;
-    window.location.reload();
-  });
-</script>
+      /* Footer */
+      footer {
+        background: #111;
+        color: #bbb;
+        padding: 15px;
+        font-size: 0.85rem;
+        border-top: 1px solid #333;
+      }
+      footer a { color: #4da8ff; text-decoration: none; font-weight: 500; }
+      footer a:hover { text-decoration: underline; }
 
-</body>
+      @media print {
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        @page { size: A4 portrait; margin: 0.5in; }
+        .table-responsive { width: 100%; max-width: 100%; overflow: visible; }
+        .table, .table td { font-size: 11px; padding: 3px; line-height: 1.4; }
+        #timetable { margin-bottom: 5px; page-break-before: auto; page-break-after: auto; max-width: 100%; }
+        footer { width: 100%; text-align: center; font-size: 8px; margin-top: 10px; padding: 5px 0; line-height: 1; }
+        footer .text-warning { display: none; }
+        footer img { display: block; margin: 0 auto; width: 200px; height: auto; }
+        footer .text-danger { font-size: 10px; line-height: 1.2; margin-bottom: 5px; }
+        header { display: none; }
+        footer { max-height: 100px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header style="margin:1rem auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;width:95vw;">
+      <a href="https://github.com/MicrosoftStudentChapter/time-table/issues">
+        <img alt="GitHub issues" src="https://img.shields.io/github/issues/MicrosoftStudentChapter/time-table?style=flat&logo=github"/>
+      </a>
+      <a href="https://github.com/MicrosoftStudentChapter/time-table">
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/MicrosoftStudentChapter/time-table?style=flat&logo=github"/>
+      </a>
+    </header>
+
+    <div class="button-container">
+      <button id="saveAsPng" class="btn btn-primary">Save as PNG</button>
+      <button id="printPdf" class="btn btn-success">Print to PDF</button>
+    </div>
+
+    <div class="table-responsive" id="timetable">
+      <table class="table table-dark table-hover" id="table">
+        {{range .Data}}
+        <tr>
+          {{range .}}
+            {{if .Course}}
+            <td class="bg-{{.Color}}">
+              <div>{{.Course}}</div>
+            </td>
+            {{else}}
+            <td class="bg-dark empty">
+              <div></div>
+            </td>
+            {{end}}
+          {{end}}
+        </tr>
+        {{end}}
+      </table>
+    </div>
+
+    <footer class="footer mt-2 mb-2 pb-2 pt-2 bg-dark">
+      <p style="text-align: center" class="text-danger">
+        Made by Utkarsh Tripathi &nbsp;
+        <a href="https://github.com/utkarsh-1905" class="badge badge-success">Github</a>
+        <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" class="badge badge-primary">Linkedin</a>
+      </p>
+      <p style="text-align: center" class="text-warning">Project contributors</p>
+      <p style="text-align: center">
+        <a href="https://github.com/MicrosoftStudentChapter/time-table/graphs/contributors">
+          <img src="https://contrib.rocks/image?repo=MicrosoftStudentChapter/time-table" />
+        </a>
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("saveAsPng").addEventListener("click", function () {
+        const timetableElement = document.getElementById("timetable");
+        html2canvas(timetableElement, { backgroundColor: null })
+          .then((canvas) => {
+            const link = document.createElement("a");
+            link.download = "timetable.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+          }).catch((error) => {
+            console.error("Error saving PNG:", error);
+          });
+      });
+
+      document.getElementById("printPdf").addEventListener("click", function () {
+        const originalContent = document.body.innerHTML;
+        const printContent = document.getElementById("timetable").outerHTML;
+        const footerContent = document.querySelector("footer").outerHTML;
+        document.body.innerHTML = printContent + footerContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        window.location.reload();
+      });
+    </script>
+  </body>
 </html>

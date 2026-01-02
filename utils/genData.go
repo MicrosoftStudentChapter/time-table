@@ -41,7 +41,7 @@ func GenerateJson() {
 		temp := make(map[int]string)
 		rows, err := f.GetRows(sheet)
 		for i, d := range rows {
-			if i == 3 {
+			if i == 4 {
 				for j, k := range d {
 					if k != "" && k != "DAY" && k != "HOURS" && k != "SR NO" && k != "SR.NO" && k != "TUTORIAL" {
 						// Add bounds checking for column number (Excel supports 1-16384)

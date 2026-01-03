@@ -64,11 +64,11 @@ func (d *Data) Append(cell string, regex *Regexs) {
 }
 
 type Regexs struct {
-	Lecture  *regexp.Regexp
-	Tut      *regexp.Regexp
+	Lecture   *regexp.Regexp
+	Tut       *regexp.Regexp
 	Practical *regexp.Regexp
-	Elective *regexp.Regexp
-	Sub      *regexp.Regexp
+	Elective  *regexp.Regexp
+	Sub       *regexp.Regexp
 }
 
 func GetTableData(sheet string, class int, f *excelize.File) [][]Data {
@@ -157,7 +157,8 @@ func GetTableData(sheet string, class int, f *excelize.File) [][]Data {
 		} else {
 			tempMap = append(tempMap, temp)
 		}
-		if time == "6:50pm" {
+		if len(tempMap) == 14 {
+
 			timings = append(timings, tempMap)
 			tempMap = []Data{}
 		}

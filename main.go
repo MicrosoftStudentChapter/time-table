@@ -32,7 +32,6 @@ func main() {
 	json.Unmarshal([]byte(byteRes), &data)
 	defer dataFile.Close()
 	table, _ := template.ParseFiles("./templates/table.html")
-	maintenance, _ := template.ParseFiles("./templates/maintenance.html")
 	courseNameCode, _ := template.ParseFiles("./templates/course-name-code.html")
 	errorPage, _ := template.ParseFiles("./templates/error.html")
 
@@ -59,22 +58,17 @@ func main() {
 		Sheets:  sheets,
 		Classes: classes,
 	}
-
+	
+	// maintenance, _ := template.ParseFiles("./templates/maintenance.html")
+	home, _ := template.ParseFiles("./templates/home.html")
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
 			errorPage.Execute(w, "This page is under construction !!(404)")
 			return
 		}
-		err := maintenance.Execute(w, nil)
-		if err != nil {
-			log.Printf("Error while executing maintenance template: %v", err)
-		}
-	})
-
-	// Backup route to access the original home page (for admin/testing)
-	home, _ := template.ParseFiles("./templates/home.html")
-	http.HandleFunc("/admin", func(w http.ResponseWriter, r *http.Request) {
+		// COMMENT/UNCOMMENT BELOW TO SWITCH BETWEEN MAINTENANCE AND HOME PAGE
 		err := home.Execute(w, h)
+		// err := maintenance.Execute(w, nil)
 		if err != nil {
 			log.Printf("Error while executing home template: %v", err)
 		}

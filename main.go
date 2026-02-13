@@ -58,7 +58,7 @@ func main() {
 		Sheets:  sheets,
 		Classes: classes,
 	}
-	
+
 	// maintenance, _ := template.ParseFiles("./templates/maintenance.html")
 	home, _ := template.ParseFiles("./templates/home.html")
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -103,6 +103,45 @@ func main() {
 	// handler to serve add course page
 	http.HandleFunc("/course", func(w http.ResponseWriter, r *http.Request) {
 		courseNameCode.Execute(w, h)
+	})
+
+	http.HandleFunc("/api/classes", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		json.NewEncoder(w).Encode(h)
+	})
+
+	http.HandleFunc("/api/timetable", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+
+		class := r.URL.Query().Get("classname")
+		if class == "" {
+			w.WriteHeader(http.StatusBadRequest)
+			json.NewEncoder(w).Encode(map[string]string{
+				"error": "Missing required query parameter: 'classname'",
+			})
+			return
+		}
+
+		var tableData [][]utils.Data
+		for _, sheetClasses := range data {
+			if td, ok := sheetClasses[class]; ok {
+				tableData = td
+				break
+			}
+		}
+
+		if tableData == nil {
+			w.WriteHeader(http.StatusNotFound)
+			json.NewEncoder(w).Encode(map[string]string{
+				"error": "Class '" + class + "' not found",
+			})
+			return
+		}
+
+		mobileData := utils.TransformToMobileFormat(tableData)
+		json.NewEncoder(w).Encode(mobileData)
 	})
 
 	fs := http.FileServer(http.Dir("assets/"))

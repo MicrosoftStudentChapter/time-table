@@ -2,15 +2,28 @@ package utils
 
 import (
 	"fmt"
+	"log"
 	"regexp"
 	"strings"
 
 	"github.com/xuri/excelize/v2"
 )
 
-const (
-	startRow = 7
-	endRow   = 147
+type Data struct {
+	Course string `json:"course"`
+	Color  string `json:"color"`
+}
+
+var (
+	reCourseCode = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}`)
+	reTypeSuffix = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}\s?([LTP])`)
+	reElective   = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}(?:/[A-Z]{2,4}\d{2,4})+`)
+
+	headerAnchors = map[string]bool{
+		"day": true, "hours": true, "hour": true,
+	}
+
+	reTime = regexp.MustCompile(`(?i)\d{1,2}:\d{2}\s*(AM|PM|am|pm)?`)
 )
 
 var dayofweek = []string{
@@ -22,158 +35,390 @@ var dayofweek = []string{
 	"Friday",
 }
 
-type Data struct {
-	Course string `json:"course"`
-	Color  string `json:"color"`
-}
+func FlattenSheet(f *excelize.File, sheet string) ([][]string, error) {
+	rows, err := f.GetRows(sheet)
+	if err != nil {
+		return nil, fmt.Errorf("FlattenSheet GetRows: %w", err)
+	}
+	if len(rows) == 0 {
+		return nil, fmt.Errorf("FlattenSheet: sheet %q is empty", sheet)
+	}
 
-func (d *Data) Append(cell string, regex *Regexs) {
-	cellbyte := regex.Sub.ReplaceAllStringFunc(cell, func(data string) string {
-		str := strings.ReplaceAll(data, "/", "")
-		str = strings.ReplaceAll(str, " ", "")
-		if len(str) > 6 {
-			str = strings.TrimRightFunc(str, func(s rune) bool {
-				if s == 'L' || s == 'P' || s == 'T' {
-					return true
-				} else {
-					return false
+	maxCols := 0
+	for _, r := range rows {
+		if len(r) > maxCols {
+			maxCols = len(r)
+		}
+	}
+
+	grid := make([][]string, len(rows))
+	for i, r := range rows {
+		grid[i] = make([]string, maxCols)
+		copy(grid[i], r)
+	}
+
+	mergedCells, err := f.GetMergeCells(sheet)
+	if err != nil {
+		log.Printf("[WARN] FlattenSheet: could not get merge cells for sheet %q: %v", sheet, err)
+		return grid, nil
+	}
+
+	for _, mc := range mergedCells {
+		startCell := mc.GetStartAxis()
+		endCell := mc.GetEndAxis()
+		value := mc.GetCellValue()
+
+		startCol, startRow, err1 := excelize.CellNameToCoordinates(startCell)
+		endCol, endRow, err2 := excelize.CellNameToCoordinates(endCell)
+		if err1 != nil || err2 != nil {
+			log.Printf("[WARN] FlattenSheet: bad merge range %s:%s — %v / %v", startCell, endCell, err1, err2)
+			continue
+		}
+
+		for r := startRow - 1; r <= endRow-1 && r < len(grid); r++ {
+			for c := startCol - 1; c <= endCol-1 && c < maxCols; c++ {
+				if c < len(grid[r]) {
+					grid[r][c] = value
 				}
-			})
-		}
-		res := GetSubjectName(str)
-		if res != "" {
-			return res
-		} else {
-			return data
-		}
-	})
-	lres := regex.Lecture.MatchString(cell)
-	tres := regex.Tut.MatchString(cell)
-	eres := regex.Elective.MatchString(cell)
-	pres := regex.Practical.MatchString(cell)
-	if lres {
-		d.Color = "danger"
-	} else if tres {
-		d.Color = "primary"
-	} else if eres {
-		d.Color = "info"
-	} else if pres {
-		d.Color = "warning"
-	}
-	d.Course += cellbyte
-}
-
-type Regexs struct {
-	Lecture   *regexp.Regexp
-	Tut       *regexp.Regexp
-	Practical *regexp.Regexp
-	Elective  *regexp.Regexp
-	Sub       *regexp.Regexp
-}
-
-func GetTableData(sheet string, class int, f *excelize.File) [][]Data {
-	// Validate column number before proceeding
-	if class < 1 || class > 16384 {
-		panic(fmt.Sprintf("Invalid column number: %d. Column number must be between 1 and 16384", class))
-	}
-
-	// regexs
-	lecture, _ := regexp.Compile(`^[A-Z]{3}[0-9]{3}\s?L`)
-	tut, _ := regexp.Compile(`^[A-Z]{3}[0-9]{3}\s?T`)
-	practical, _ := regexp.Compile(`^[A-Z]{3}[0-9]{3}\s?P`)
-	elective, _ := regexp.Compile(`^([A-Z]{3}[0-9]{3}(\/[A-Z]{3}[0-9]{3})+)\s?L`)
-	subSelect, _ := regexp.Compile(`[A-Z]{3}[0-9]{3}\s?[L,T,P]?`)
-
-	regex := Regexs{lecture, tut, practical, elective, subSelect}
-	timings := [][]Data{}
-	freeTime := Data{Course: "", Color: "success"}
-	var Days []Data
-	for _, d := range dayofweek {
-		temp := Data{
-			Course: d,
-			Color:  "dark",
-		}
-		Days = append(Days, temp)
-	}
-
-	col, err := excelize.ColumnNumberToName(class)
-	HandleError(err)
-	timeValue := []string{"8:00am", " 8:50:am", "9:40:am", "10:30:am", "11:20am", "12:10pm", "1:00pm", "1:50pm", "2:40pm", "3:30pm", "4:20pm", "5:10pm", "6:00pm", "6:50pm"}
-
-	tempMap := []Data{}
-
-	check := ""
-	for i := startRow; i < endRow; i += 2 {
-		timeCell := fmt.Sprintf("D%d", i)
-		time, _ := f.GetCellValue(sheet, timeCell)
-		time = strings.ToLower(time)
-		time = strings.ReplaceAll(time, " ", "")
-		tclass := class
-		var temp Data
-		for j := 0; j < 2; j++ {
-			cellId := fmt.Sprintf("%s%d", col, i+j)
-			cell, _ := f.GetCellValue(sheet, cellId)
-			if check == cell && check != "" && cell != "" {
-				cell = "Lab Continue"
-			} else {
-				check = cell
 			}
-			if cell != "" {
-				if temp.Course != "" && strings.Trim(cell, " ") == strings.Trim(temp.Course, " ") {
-					continue
+		}
+	}
+
+	return grid, nil
+}
+
+type GridBounds struct {
+	HeaderRow    int
+	DataStartRow int
+	DataEndRow   int
+	DayCol       int
+	TimeCol      int
+	ClassColumns map[int]string
+}
+
+func DetectGridBounds(grid [][]string, sheet string) (*GridBounds, error) {
+	gb := &GridBounds{
+		HeaderRow:    -1,
+		DataStartRow: -1,
+		DayCol:       -1,
+		TimeCol:      -1,
+		ClassColumns: make(map[int]string),
+	}
+
+	for r := 0; r < len(grid); r++ {
+		for c := 0; c < len(grid[r]); c++ {
+			val := strings.TrimSpace(strings.ToLower(grid[r][c]))
+			if val == "day" || val == "days" {
+				gb.DayCol = c
+				gb.HeaderRow = r
+			}
+			if val == "hours" || val == "hour" || val == "timings" || val == "timing" || val == "time" {
+				gb.TimeCol = c
+				if gb.HeaderRow == -1 {
+					gb.HeaderRow = r
 				}
-				if j == 1 && cell == "Lab Continue" {
-					continue
+			}
+		}
+		if gb.HeaderRow != -1 {
+			break
+		}
+	}
+
+	if gb.HeaderRow == -1 {
+		return nil, fmt.Errorf("DetectGridBounds: no header row with 'DAY'/'HOURS' found in sheet %q", sheet)
+	}
+
+	if gb.TimeCol == -1 {
+		for c := 0; c < len(grid[gb.HeaderRow]); c++ {
+			for r := gb.HeaderRow + 1; r < len(grid) && r <= gb.HeaderRow+5; r++ {
+				if c < len(grid[r]) && reTime.MatchString(grid[r][c]) {
+					gb.TimeCol = c
+					break
 				}
-				temp.Append(cell+" ", &regex)
-			} else {
-				// algo to get venue in a merged cell situation
-				if temp.Course != "" && j == 1 {
-					tcell := ""
-					maxIter := 35 //to prevent infinite loop
-					for tcell == "" && maxIter > 0 {
-						tclass--
-						// Ensure tclass doesn't go below 1
-						if tclass < 1 {
-							break
-						}
-						col, err := excelize.ColumnNumberToName(tclass)
-						HandleError(err)
-						cellId := fmt.Sprintf("%s%d", col, i+j)
-						tcell, err = f.GetCellValue(sheet, cellId)
-						HandleError(err)
-						if tcell != "" {
-							temp.Append(tcell, &regex)
-							break
-						}
-						maxIter--
+			}
+			if gb.TimeCol != -1 {
+				break
+			}
+		}
+	}
+	if gb.TimeCol == -1 {
+		log.Printf("[WARN] DetectGridBounds: could not find time column in sheet %q, falling back to DayCol+1", sheet)
+		gb.TimeCol = gb.DayCol + 1
+	}
+	if gb.DayCol == -1 {
+		gb.DayCol = 0
+	}
+
+	for r := gb.HeaderRow + 1; r < len(grid); r++ {
+		if gb.TimeCol < len(grid[r]) && reTime.MatchString(grid[r][gb.TimeCol]) {
+			gb.DataStartRow = r
+			break
+		}
+	}
+	if gb.DataStartRow == -1 {
+		gb.DataStartRow = gb.HeaderRow + 1
+		log.Printf("[WARN] DetectGridBounds: no time value found below header in sheet %q, using row %d", sheet, gb.DataStartRow)
+	}
+
+	gb.DataEndRow = gb.DataStartRow
+	for r := gb.DataStartRow; r < len(grid); r++ {
+		hasContent := false
+		if gb.TimeCol < len(grid[r]) && strings.TrimSpace(grid[r][gb.TimeCol]) != "" {
+			hasContent = true
+		}
+		if !hasContent {
+			for c := gb.TimeCol + 1; c < len(grid[r]) && c <= gb.TimeCol+20; c++ {
+				if strings.TrimSpace(grid[r][c]) != "" {
+					hasContent = true
+					break
+				}
+			}
+		}
+		if hasContent {
+			gb.DataEndRow = r
+		} else {
+			if r > gb.DataEndRow+3 {
+				break
+			}
+		}
+	}
+
+	skipLabels := map[string]bool{
+		"day": true, "days": true, "hours": true, "hour": true,
+		"sr no": true, "sr.no": true, "sr.no.": true, "s.no": true, "s. no": true,
+		"tutorial": true, "lecture": true, "practical": true,
+		"timings": true, "timing": true, "time": true,
+		"": true,
+	}
+
+	for c := 0; c < len(grid[gb.HeaderRow]); c++ {
+		val := strings.TrimSpace(grid[gb.HeaderRow][c])
+		low := strings.ToLower(val)
+		if !skipLabels[low] && c != gb.DayCol && c != gb.TimeCol {
+			gb.ClassColumns[c] = val
+		}
+	}
+
+	for delta := 1; delta <= 2; delta++ {
+		r := gb.HeaderRow - delta
+		if r < 0 {
+			break
+		}
+		for c := 0; c < len(grid[r]); c++ {
+			val := strings.TrimSpace(grid[r][c])
+			low := strings.ToLower(val)
+			if !skipLabels[low] && c != gb.DayCol && c != gb.TimeCol {
+				existing, hasExisting := gb.ClassColumns[c]
+				if !hasExisting || len(val) > len(existing) {
+					gb.ClassColumns[c] = val
+				}
+			}
+		}
+	}
+
+	if len(gb.ClassColumns) == 0 {
+		return nil, fmt.Errorf("DetectGridBounds: no class columns found near header row %d in sheet %q", gb.HeaderRow, sheet)
+	}
+
+	return gb, nil
+}
+
+func ExtractCellData(raw, sheet, cellRef string) Data {
+	trimmed := strings.TrimSpace(raw)
+	if trimmed == "" {
+		return Data{Course: "", Color: "success"} // free period
+	}
+
+	color := ""
+	isElective := reElective.MatchString(trimmed)
+	suffixMatch := reTypeSuffix.FindStringSubmatch(trimmed)
+
+	if isElective {
+		color = "info"
+	} else if len(suffixMatch) >= 2 {
+		switch suffixMatch[1] {
+		case "L":
+			color = "danger"
+		case "T":
+			color = "primary"
+		case "P":
+			color = "warning"
+		}
+	}
+
+	codes := reCourseCode.FindAllString(trimmed, -1)
+	if len(codes) == 0 {
+		LogCellWarning(sheet, cellRef, trimmed)
+		return Data{Course: trimmed, Color: color}
+	}
+
+	parts := []string{}
+
+	beforeCode := trimmed
+	firstCodeIdx := strings.Index(trimmed, codes[0])
+	if firstCodeIdx > 0 {
+		beforeCode = strings.TrimSpace(trimmed[:firstCodeIdx])
+		if beforeCode != "" {
+			parts = append(parts, beforeCode)
+		}
+	}
+
+	for _, code := range codes {
+		clean := strings.ReplaceAll(code, " ", "")
+		resolved := GetSubjectName(clean)
+		if resolved != "" {
+			parts = append(parts, resolved)
+		} else {
+			parts = append(parts, clean)
+		}
+	}
+
+	if len(suffixMatch) >= 2 {
+		parts = append(parts, suffixMatch[1])
+	}
+
+	course := strings.Join(parts, " ")
+	return Data{Course: course, Color: color}
+}
+
+var timeValues = []string{
+	"8:00am", "8:50am", "9:40am", "10:30am", "11:20am", "12:10pm",
+	"1:00pm", "1:50pm", "2:40pm", "3:30pm", "4:20pm", "5:10pm",
+	"6:00pm", "6:50pm",
+}
+
+func GetTableData(grid [][]string, bounds *GridBounds, classCol int, sheet string) [][]Data {
+
+	header := make([]Data, len(dayofweek))
+	for i, d := range dayofweek {
+		header[i] = Data{Course: d, Color: "dark"}
+	}
+
+	numSlots := len(timeValues)
+	type timeSlot struct {
+		row  int
+		time string
+	}
+	var slots []timeSlot
+	for r := bounds.DataStartRow; r <= bounds.DataEndRow && r < len(grid); r++ {
+		if bounds.TimeCol < len(grid[r]) {
+			val := strings.TrimSpace(grid[r][bounds.TimeCol])
+			if reTime.MatchString(val) {
+				slots = append(slots, timeSlot{row: r, time: val})
+			}
+		}
+	}
+
+	type dayBlock struct {
+		name     string
+		startRow int
+		endRow   int
+	}
+
+	dayNameMap := map[string]int{
+		"monday": 0, "tuesday": 1, "wednesday": 2,
+		"thursday": 3, "friday": 4, "saturday": 5, "sunday": 6,
+	}
+
+	var blocks []dayBlock
+	currentDay := ""
+	blockStart := bounds.DataStartRow
+
+	for r := bounds.DataStartRow; r <= bounds.DataEndRow && r < len(grid); r++ {
+		dayVal := ""
+		if bounds.DayCol < len(grid[r]) {
+			dayVal = strings.TrimSpace(strings.ToLower(grid[r][bounds.DayCol]))
+		}
+
+		if dayVal != "" && dayVal != currentDay {
+			if currentDay != "" {
+				blocks = append(blocks, dayBlock{name: currentDay, startRow: blockStart, endRow: r - 1})
+			}
+			currentDay = dayVal
+			blockStart = r
+		}
+	}
+	if currentDay != "" {
+		blocks = append(blocks, dayBlock{name: currentDay, startRow: blockStart, endRow: bounds.DataEndRow})
+	}
+
+	type slotInDay struct {
+		slotIdx int
+		row     int
+	}
+
+	daySlots := make(map[int][]slotInDay)
+
+	globalSlotIdx := 0
+	for _, blk := range blocks {
+		dayIdx, ok := dayNameMap[blk.name]
+		if !ok || dayIdx >= 5 {
+			continue
+		}
+		for _, s := range slots {
+			if s.row >= blk.startRow && s.row <= blk.endRow && globalSlotIdx < numSlots {
+				daySlots[dayIdx] = append(daySlots[dayIdx], slotInDay{slotIdx: globalSlotIdx, row: s.row})
+			}
+			if s.row >= blk.startRow && s.row <= blk.endRow {
+				globalSlotIdx++
+			}
+		}
+	}
+
+	dayData := make([][]Data, 5)
+	for di := 0; di < 5; di++ {
+		dayData[di] = make([]Data, numSlots)
+		for s := 0; s < numSlots; s++ {
+			dayData[di][s] = Data{Course: "", Color: "success"}
+		}
+	}
+
+	slotIdx := 0
+	dayIdx := 0
+	for r := bounds.DataStartRow; r <= bounds.DataEndRow && r < len(grid) && dayIdx < 5; r += 2 {
+		cellContent := ""
+		for sub := 0; sub < 2; sub++ {
+			row := r + sub
+			if row < len(grid) && classCol < len(grid[row]) {
+				val := strings.TrimSpace(grid[row][classCol])
+				if val != "" {
+					if cellContent != "" && val != cellContent {
+						cellContent += " " + val
+					} else if cellContent == "" {
+						cellContent = val
 					}
 				}
-				temp.Append("", &regex)
 			}
 		}
-		if temp.Course == "" {
-			tempMap = append(tempMap, freeTime)
-		} else {
-			tempMap = append(tempMap, temp)
-		}
-		if len(tempMap) == 14 {
 
-			timings = append(timings, tempMap)
-			tempMap = []Data{}
+		cellRef := fmt.Sprintf("%s%d", colName(classCol), r+1)
+		dayData[dayIdx][slotIdx] = ExtractCellData(cellContent, sheet, cellRef)
+		slotIdx++
+
+		if slotIdx >= numSlots {
+			slotIdx = 0
+			dayIdx++
 		}
 	}
 
-	newtimings := [][]Data{}
-	newtimings = append(newtimings, Days)
-	for i := 0; i < 14; i++ {
-		temp := []Data{}
-		temp = append(temp, Data{timeValue[i], "dark"})
-		for _, d := range timings {
-			temp = append(temp, d[i])
+	result := make([][]Data, numSlots+1)
+	result[0] = header
+	for s := 0; s < numSlots; s++ {
+		row := make([]Data, len(dayofweek))
+		row[0] = Data{Course: timeValues[s], Color: "dark"}
+		for di := 0; di < 5 && di+1 < len(row); di++ {
+			row[di+1] = dayData[di][s]
 		}
-		newtimings = append(newtimings, temp)
+		result[s+1] = row
 	}
 
-	return newtimings
+	return result
+}
+
+func colName(col int) string {
+	name, err := excelize.ColumnNumberToName(col + 1)
+	if err != nil {
+		return fmt.Sprintf("COL%d", col)
+	}
+	return name
 }

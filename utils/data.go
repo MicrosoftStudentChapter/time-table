@@ -15,9 +15,19 @@ type Data struct {
 }
 
 var (
-	reCourseCode = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}`)
-	reTypeSuffix = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}\s?([LTP])`)
+	// Matches standard course codes (UCS675, UMA023) and non-standard ones (UCSXX1).
+	// The 5-7 letter variant avoids false-matching room names (LAB1, APC5, RSF1).
+	reCourseCode = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}|[A-Z]{5,7}\d{1,3}`)
+	// Suffix L/T/P must be followed by whitespace or end-of-string, so room codes
+	// like "TA3" aren't mistaken for a suffix "T" (from "LAB1 TA3").
+	reTypeSuffix = regexp.MustCompile(`(?:[A-Z]{2,4}\d{2,4}|[A-Z]{5,7}\d{1,3})\s?([LTP])(?:\s|$)`)
 	reElective   = regexp.MustCompile(`[A-Z]{2,4}\d{2,4}(?:/[A-Z]{2,4}\d{2,4})+`)
+
+	// Matches professor initials in second sub-rows: "ABJ", "PK", "HJS/SCB", "DKA-RA"
+	reProfPattern = regexp.MustCompile(`^[A-Z]{2,4}(-[A-Z]+)?(/[A-Z]{2,4}(-[A-Z]+)?)*$`)
+
+	// Matches standalone room/location codes (with optional hyphen): "APC-5", "RF4", "LC-1", "G312", "AP-C3"
+	reRoomStandalone = regexp.MustCompile(`^(LP|LT|LC|TA|BC|CC|CD|APC|AP|PL|VL|GC|RSF|RF|RA|G|C|L)-?[A-Z]?\d{1,4}$`)
 
 	headerAnchors = map[string]bool{
 		"day": true, "hours": true, "hour": true,
@@ -248,7 +258,13 @@ func ExtractCellData(raw, sheet, cellRef string) Data {
 
 	codes := reCourseCode.FindAllString(trimmed, -1)
 	if len(codes) == 0 {
-		LogCellWarning(sheet, cellRef, trimmed)
+		// No course code found — this is second-sub-row supplementary data
+		// (room codes, professor initials, lab names, descriptive text like
+		// "BIO PROCESS/MICRO PROCESS/MOL BIO LAB", "CAPSTONE LECTURE F105/F106").
+		// Ensure LAB-containing entries get the practical color if not already set.
+		if strings.Contains(strings.ToUpper(trimmed), "LAB") && color == "" {
+			color = "warning"
+		}
 		return Data{Course: trimmed, Color: color}
 	}
 
@@ -275,6 +291,33 @@ func ExtractCellData(raw, sheet, cellRef string) Data {
 
 	if len(suffixMatch) >= 2 {
 		parts = append(parts, suffixMatch[1])
+	}
+
+	// Capture any text after all recognized patterns (course codes + type suffix).
+	// The room/location code from the second Excel sub-row often ends up here.
+	// e.g. "UPH013P G312" → after code UPH013 and suffix P, "G312" remains.
+	codeLocations := reCourseCode.FindAllStringIndex(trimmed, -1)
+	if len(codeLocations) > 0 {
+		lastCodeEnd := codeLocations[len(codeLocations)-1][1]
+		rest := trimmed[lastCodeEnd:]
+
+		// Skip past the type suffix character (L/T/P) that may follow the last code.
+		// It can be adjacent ("UPH013P") or with a space ("UPH013 P").
+		// We only skip if the suffix char is at a word boundary (followed by space or end).
+		skip := 0
+		if len(rest) > 0 && rest[0] == ' ' {
+			skip = 1
+		}
+		if skip < len(rest) && (rest[skip] == 'L' || rest[skip] == 'T' || rest[skip] == 'P') {
+			if skip+1 >= len(rest) || rest[skip+1] == ' ' {
+				skip++
+			}
+		}
+
+		afterText := strings.TrimSpace(rest[skip:])
+		if afterText != "" {
+			parts = append(parts, afterText)
+		}
 	}
 
 	course := strings.Join(parts, " ")

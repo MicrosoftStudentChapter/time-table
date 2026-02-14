@@ -8,12 +8,18 @@ import (
 	"strings"
 )
 
-
 var subjectCodeToName map[string]string
 
-var reRoomCode = regexp.MustCompile(`^(LP|LT|TA|BC|CC|CD|APC|PL|VL|GC)\d{1,4}$`)
+// reRoomCode matches known Thapar room/location codes by their building prefix.
+// Prefixes: LP (Lecture Plaza), LT (Lecture Theatre), TA (Teaching Area),
+// L (Labs L001-L430), LC (Computer Labs), RA/RF/RSF (Research Areas),
+// G (G-Block), C (C-Block), BC, CC, CD, APC, PL, VL, GC.
+var reRoomCode = regexp.MustCompile(`^(LP|LT|LC|TA|BC|CC|CD|APC|PL|VL|GC|RSF|RF|RA|G|C|L)\d{1,4}$`)
 
 var reIsCourseCode = regexp.MustCompile(`^[A-Z]{2,4}\d{2,4}$`)
+
+// reProfInitials matches professor initial patterns like "ROS", "KUC", "VJY/KUC", "DKA-RA/SNL-RA"
+var reProfInitials = regexp.MustCompile(`^[A-Z]{2,4}(-[A-Z]+)?(/[A-Z]{2,4}(-[A-Z]+)?)*$`)
 
 func init() {
 	subjectCodeToName = make(map[string]string)
@@ -133,7 +139,7 @@ func buildClassEntry(cell Data, timeRange, period string) *ClassEntry {
 		return nil
 	}
 
-	location, title := parseCourseString(course)
+	location, title, professor := parseCourseString(course)
 	typeName := ""
 	typeColor := ""
 	if info, ok := colorToType[cell.Color]; ok {
@@ -146,49 +152,78 @@ func buildClassEntry(cell Data, timeRange, period string) *ClassEntry {
 		Period:    period,
 		Title:     title,
 		Location:  location,
-		Professor: "",
+		Professor: professor,
 		Type:      typeName,
 		TypeColor: typeColor,
 	}
 }
 
-func parseCourseString(course string) (location, title string) {
+func parseCourseString(course string) (location, title, professor string) {
 	course = strings.TrimSpace(course)
 	if course == "" {
-		return "", ""
+		return "", "", ""
 	}
 
 	parts := strings.Fields(course)
 
+	if len(parts) >= 1 && parts[0] == "LAB" {
+		rest := parts[1:]
+		for _, token := range rest {
+			if reRoomCode.MatchString(token) {
+				location = token
+			} else if reProfInitials.MatchString(token) {
+				if professor == "" {
+					professor = token
+				} else {
+					professor += "/" + token
+				}
+			}
+		}
+		return location, "", professor
+	}
 
-	if len(parts) > 0 {
-		last := parts[len(parts)-1]
-		if last == "L" || last == "T" || last == "P" {
-			parts = parts[:len(parts)-1]
+	suffixIdx := -1
+	for i := len(parts) - 1; i >= 0; i-- {
+		if parts[i] == "L" || parts[i] == "T" || parts[i] == "P" {
+			suffixIdx = i
+			break
 		}
 	}
 
-	if len(parts) == 0 {
-		return "", course
+	var beforeSuffix, afterSuffix []string
+	if suffixIdx >= 0 {
+		beforeSuffix = parts[:suffixIdx]
+		if suffixIdx+1 < len(parts) {
+			afterSuffix = parts[suffixIdx+1:]
+		}
+	} else {
+		beforeSuffix = parts
 	}
 
-	
-	if len(parts) >= 2 {
-		candidate := parts[len(parts)-1]
+	if len(beforeSuffix) == 0 {
+		return "", course, ""
+	}
+
+	if len(afterSuffix) > 0 {
+		location = strings.Join(afterSuffix, " ")
+	}
+
+	if location == "" && len(beforeSuffix) >= 2 {
+		candidate := beforeSuffix[len(beforeSuffix)-1]
 		if reRoomCode.MatchString(candidate) {
 			location = candidate
-			parts = parts[:len(parts)-1]
+			beforeSuffix = beforeSuffix[:len(beforeSuffix)-1]
 		}
 	}
 
-	for i, token := range parts {
+	for i, token := range beforeSuffix {
 		if reIsCourseCode.MatchString(token) {
 			if name, ok := subjectCodeToName[token]; ok {
-				parts[i] = name
+				beforeSuffix[i] = name
 			}
 		}
 	}
 
-	title = strings.Join(parts, " ")
-	return location, title
+	title = strings.Join(beforeSuffix, " ")
+	return location, title, ""
 }

@@ -1,8 +1,44 @@
 package utils
 
 import (
+	"encoding/json"
+	"io"
+	"os"
+	"regexp"
 	"strings"
 )
+
+
+var subjectCodeToName map[string]string
+
+var reRoomCode = regexp.MustCompile(`^(LP|LT|TA|BC|CC|CD|APC|PL|VL|GC)\d{1,4}$`)
+
+var reIsCourseCode = regexp.MustCompile(`^[A-Z]{2,4}\d{2,4}$`)
+
+func init() {
+	subjectCodeToName = make(map[string]string)
+	file, err := os.Open("./subjects.json")
+	if err != nil {
+		return
+	}
+	defer file.Close()
+
+	type subjectEntry struct {
+		Name string `json:"name"`
+	}
+	raw := make(map[string]subjectEntry)
+	bytes, err := io.ReadAll(file)
+	if err != nil {
+		return
+	}
+	json.Unmarshal(bytes, &raw)
+	for code, entry := range raw {
+		c := strings.TrimSpace(code)
+		if entry.Name != "" {
+			subjectCodeToName[c] = entry.Name
+		}
+	}
+}
 
 type ClassEntry struct {
 	Time      string `json:"time"`
@@ -118,21 +154,41 @@ func buildClassEntry(cell Data, timeRange, period string) *ClassEntry {
 
 func parseCourseString(course string) (location, title string) {
 	course = strings.TrimSpace(course)
+	if course == "" {
+		return "", ""
+	}
+
 	parts := strings.Fields(course)
+
+
+	if len(parts) > 0 {
+		last := parts[len(parts)-1]
+		if last == "L" || last == "T" || last == "P" {
+			parts = parts[:len(parts)-1]
+		}
+	}
 
 	if len(parts) == 0 {
 		return "", course
 	}
 
-	if len(parts) == 1 {
-		return "", parts[0]
+	
+	if len(parts) >= 2 {
+		candidate := parts[len(parts)-1]
+		if reRoomCode.MatchString(candidate) {
+			location = candidate
+			parts = parts[:len(parts)-1]
+		}
 	}
 
-	first := parts[0]
-	rest := strings.Join(parts[1:], " ")
-
-	if reCourseCode.MatchString(first) {
-		return "", course
+	for i, token := range parts {
+		if reIsCourseCode.MatchString(token) {
+			if name, ok := subjectCodeToName[token]; ok {
+				parts[i] = name
+			}
+		}
 	}
-	return first, rest
+
+	title = strings.Join(parts, " ")
+	return location, title
 }

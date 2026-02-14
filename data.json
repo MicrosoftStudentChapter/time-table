@@ -167,7 +167,7 @@
 					"color": ""
 				},
 				{
-					"course": "UPH013 T",
+					"course": "UPH013 TA17 T",
 					"color": "primary"
 				},
 				{
@@ -241,7 +241,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP101 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -267,7 +267,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES102 LP101 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -293,7 +293,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 LP101 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -2397,7 +2397,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA19 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				},
 				{
@@ -2423,7 +2423,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 TA36 T",
+					"course": "UMA023 T",
 					"color": "primary"
 				},
 				{
@@ -2789,7 +2789,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 T",
+					"course": "UMA023 TA32 T",
 					"color": "primary"
 				},
 				{
@@ -2815,7 +2815,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 T",
+					"course": "UPH013 TA17 T",
 					"color": "primary"
 				},
 				{
@@ -3565,7 +3565,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 L",
+					"course": "UMA023 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3591,7 +3591,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 L",
+					"course": "UPH013 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3613,11 +3613,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA023 L",
+					"course": "UMA023 LP101 L",
 					"color": "danger"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION L",
+					"course": "PROFESSIONAL COMMUNICATION LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3639,11 +3639,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES101 L",
+					"course": "UES101 LP101 L",
 					"color": "danger"
 				},
 				{
-					"course": "UES101 L",
+					"course": "UES101 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3703,7 +3703,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 TA33 T",
+					"course": "UMA023 T",
 					"color": "primary"
 				},
 				{
@@ -3725,7 +3725,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION L",
+					"course": "PROFESSIONAL COMMUNICATION LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3751,7 +3751,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES102 L",
+					"course": "UES102 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3777,11 +3777,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 L",
+					"course": "UPH013 LP101 L",
 					"color": "danger"
 				},
 				{
-					"course": "UES102 L",
+					"course": "UES102 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3807,7 +3807,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 L",
+					"course": "UMA023 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3833,7 +3833,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 L",
+					"course": "UPH013 LP101 L",
 					"color": "danger"
 				},
 				{
@@ -3979,7 +3979,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 TA20 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				},
 				{
@@ -4805,7 +4805,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA17 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				}
 			],
@@ -4831,7 +4831,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 TA29 T",
+					"course": "UMA023 T",
 					"color": "primary"
 				}
 			],
@@ -6313,7 +6313,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP101 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -6321,7 +6321,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 LP101 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				}
 			],
@@ -6339,7 +6339,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA023 LP101 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -6347,7 +6347,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP101 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				}
 			],
@@ -6409,7 +6409,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES102 LP101 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -6417,7 +6417,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 T",
+					"course": "UPH013 TA16 T",
 					"color": "primary"
 				},
 				{
@@ -6435,7 +6435,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES101 LP101 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -6473,7 +6473,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 LP101 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -6491,7 +6491,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UMA023 LP101 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -6499,7 +6499,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 LP101 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -6517,7 +6517,7 @@
 					"color": ""
 				},
 				{
-					"course": "UES102 LP101 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -6543,7 +6543,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 LP101 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -6569,7 +6569,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES101 LP101 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -8411,7 +8411,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 T",
+					"course": "UMA023 TA37 T",
 					"color": "primary"
 				}
 			],
@@ -8751,7 +8751,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA16 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				}
 			],
@@ -11251,7 +11251,7 @@
 					"color": "primary"
 				},
 				{
-					"course": "UPH013 TA15 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				},
 				{
@@ -11413,11 +11413,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 T",
+					"course": "UMA023 TA31 T",
 					"color": "primary"
 				},
 				{
-					"course": "UES102 LP102 L",
+					"course": "UES102 L",
 					"color": "danger"
 				}
 			],
@@ -11439,11 +11439,11 @@
 					"color": "primary"
 				},
 				{
-					"course": "UPH013 T",
+					"course": "UPH013 TA19 T",
 					"color": "primary"
 				},
 				{
-					"course": "UES101 LP102 L",
+					"course": "UES101 L",
 					"color": "danger"
 				}
 			],
@@ -11487,7 +11487,7 @@
 					"color": ""
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -11505,7 +11505,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -11513,7 +11513,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP102 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -11531,7 +11531,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -11539,7 +11539,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -11569,7 +11569,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP102 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -11595,7 +11595,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES101 LP102 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -11613,7 +11613,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -11639,7 +11639,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES102 LP102 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -11665,7 +11665,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -12603,7 +12603,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 T",
+					"course": "UPH013 TA24 T",
 					"color": "primary"
 				},
 				{
@@ -13365,7 +13365,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -13391,7 +13391,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES102 LP102 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -13417,7 +13417,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES101 LP102 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -13429,7 +13429,7 @@
 					"color": "primary"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				}
 			],
@@ -13455,7 +13455,7 @@
 					"color": ""
 				},
 				{
-					"course": "UPH013 LP103 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				}
 			],
@@ -13477,7 +13477,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP102 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -13503,7 +13503,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -13517,7 +13517,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES101 LP102 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -13543,7 +13543,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES102 LP102 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -13569,7 +13569,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -13603,7 +13603,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP102 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -13629,7 +13629,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -14945,7 +14945,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA18 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				}
 			],
@@ -15333,7 +15333,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES101 LP102 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -15359,7 +15359,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -15403,7 +15403,7 @@
 					"color": "success"
 				},
 				{
-					"course": "F LP102",
+					"course": "F",
 					"color": ""
 				},
 				{
@@ -15429,7 +15429,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -15455,7 +15455,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP102 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -15485,7 +15485,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP102 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -15493,7 +15493,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES101 LP102 L",
+					"course": "UES101 L",
 					"color": "danger"
 				}
 			],
@@ -15511,7 +15511,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -15519,7 +15519,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				}
 			],
@@ -15537,7 +15537,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES102 LP102 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -15555,7 +15555,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 LP102 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -15571,7 +15571,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 T",
+					"course": "UPH013 TA25 T",
 					"color": "primary"
 				}
 			],
@@ -15581,7 +15581,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA023 LP102 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -19035,7 +19035,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA11 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				},
 				{
@@ -21209,11 +21209,11 @@
 					"color": "warning"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP103 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA023 LP103 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -21235,11 +21235,11 @@
 					"color": ""
 				},
 				{
-					"course": "UAI201 LP103 L",
+					"course": "UAI201 L",
 					"color": "danger"
 				},
 				{
-					"course": "UPH013 LP103 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -21261,11 +21261,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UES102 LP103 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
-					"course": "UAI201 LP103 L",
+					"course": "UAI201 L",
 					"color": "danger"
 				},
 				{
@@ -21291,7 +21291,7 @@
 					"color": "success"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION LP103 L",
+					"course": "PROFESSIONAL COMMUNICATION L",
 					"color": "danger"
 				},
 				{
@@ -21321,7 +21321,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UES101 LP103 L",
+					"course": "UES101 L",
 					"color": "danger"
 				}
 			],
@@ -21347,7 +21347,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA023 LP103 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				}
 			],
@@ -21357,7 +21357,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UPH013 LP103 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -21383,7 +21383,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA023 LP103 L",
+					"course": "UMA023 L",
 					"color": "danger"
 				},
 				{
@@ -21409,7 +21409,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES102 LP103 L",
+					"course": "UES102 L",
 					"color": "danger"
 				},
 				{
@@ -21439,7 +21439,7 @@
 					"color": "primary"
 				},
 				{
-					"course": "UES101 LP103 L",
+					"course": "UES101 L",
 					"color": "danger"
 				},
 				{
@@ -21465,7 +21465,7 @@
 					"color": "primary"
 				},
 				{
-					"course": "UPH013 LP103 L",
+					"course": "UPH013 L",
 					"color": "danger"
 				},
 				{
@@ -22097,7 +22097,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 TA26 T",
+					"course": "UMA023 T",
 					"color": "primary"
 				},
 				{
@@ -22803,7 +22803,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 TA33 T",
+					"course": "UMA023 T",
 					"color": "primary"
 				},
 				{
@@ -22829,7 +22829,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA24 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				},
 				{
@@ -22855,7 +22855,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES101 L",
+					"course": "UES101 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -22881,11 +22881,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 L",
+					"course": "UPH013 LP103 L",
 					"color": "danger"
 				},
 				{
-					"course": "UES102 L",
+					"course": "UES102 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -22907,11 +22907,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UAI201 L",
+					"course": "UAI201 LP103 L",
 					"color": "danger"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION L",
+					"course": "PROFESSIONAL COMMUNICATION LP103 L",
 					"color": "danger"
 				},
 				{
@@ -22941,7 +22941,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UAI201 L",
+					"course": "UAI201 LP103 L",
 					"color": "danger"
 				}
 			],
@@ -22955,7 +22955,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 L",
+					"course": "UPH013 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -22967,7 +22967,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 L",
+					"course": "UMA023 LP103 L",
 					"color": "danger"
 				}
 			],
@@ -22981,7 +22981,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES102 L",
+					"course": "UES102 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -22993,7 +22993,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 L",
+					"course": "UPH013 LP103 L",
 					"color": "danger"
 				}
 			],
@@ -23003,7 +23003,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "PROFESSIONAL COMMUNICATION L",
+					"course": "PROFESSIONAL COMMUNICATION LP103 L",
 					"color": "danger"
 				},
 				{
@@ -23015,7 +23015,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UES101 L",
+					"course": "UES101 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -23029,7 +23029,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA023 L",
+					"course": "UMA023 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -23041,7 +23041,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA023 L",
+					"course": "UMA023 LP103 L",
 					"color": "danger"
 				},
 				{
@@ -23403,7 +23403,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UPH013 TA11 T",
+					"course": "UPH013 T",
 					"color": "primary"
 				},
 				{
@@ -23429,7 +23429,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA023 TA27 T",
+					"course": "UMA023 T",
 					"color": "primary"
 				},
 				{
@@ -27583,7 +27583,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 L",
+					"course": "UEN008 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27609,7 +27609,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27631,7 +27631,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27657,7 +27657,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27683,7 +27683,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27875,7 +27875,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27901,7 +27901,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27927,7 +27927,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27953,7 +27953,7 @@
 					"color": ""
 				},
 				{
-					"course": "UEN008 L",
+					"course": "UEN008 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -27987,7 +27987,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LP101 L",
 					"color": "danger"
 				}
 			],
@@ -28013,7 +28013,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP101 L",
 					"color": "danger"
 				}
 			],
@@ -28087,7 +28087,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
 					"color": "danger"
 				},
 				{
@@ -28113,7 +28113,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -28139,7 +28139,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LT103 L",
 					"color": "danger"
 				},
 				{
@@ -28867,7 +28867,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING T",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING TA10 T",
 					"color": "primary"
 				},
 				{
@@ -31055,7 +31055,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 LT103 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -31081,7 +31081,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -31089,7 +31089,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA24 T",
 					"color": "primary"
 				},
 				{
@@ -31149,7 +31149,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				}
 			],
@@ -31171,7 +31171,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 LT103 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -31193,11 +31193,11 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA022 LT103 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -31219,7 +31219,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LT103 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -31241,11 +31241,11 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LT103 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
-					"course": "UEN008 LT103 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -31267,11 +31267,11 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LT103 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA022 LT103 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -33759,7 +33759,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LP104 L",
 					"color": "danger"
 				},
 				{
@@ -33785,7 +33785,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LP104 L",
 					"color": "danger"
 				},
 				{
@@ -33799,7 +33799,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP104 L",
 					"color": "danger"
 				},
 				{
@@ -33811,11 +33811,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 L",
+					"course": "UEN008 LP104 L",
 					"color": "danger"
 				},
 				{
-					"course": "UEN008 L",
+					"course": "UEN008 LP104 L",
 					"color": "danger"
 				}
 			],
@@ -33825,11 +33825,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA022 TA21 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				},
 				{
@@ -33841,7 +33841,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP104 L",
 					"color": "danger"
 				}
 			],
@@ -33907,7 +33907,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LP104 L",
 					"color": "danger"
 				},
 				{
@@ -33933,11 +33933,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LP104 L",
 					"color": "danger"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LP104 L",
 					"color": "danger"
 				},
 				{
@@ -33959,11 +33959,11 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
 					"color": "danger"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP104 L",
 					"color": "danger"
 				},
 				{
@@ -33989,7 +33989,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
 					"color": "danger"
 				},
 				{
@@ -34015,7 +34015,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LP104 L",
 					"color": "danger"
 				},
 				{
@@ -34385,7 +34385,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA22 T",
 					"color": "primary"
 				},
 				{
@@ -34651,7 +34651,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 TA13 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				}
 			],
@@ -35741,7 +35741,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -35767,7 +35767,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 LP104 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -35793,11 +35793,11 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -35811,7 +35811,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -35823,7 +35823,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
@@ -35837,7 +35837,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -35849,7 +35849,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -35879,7 +35879,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				}
 			],
@@ -35905,7 +35905,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 LP104 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				}
 			],
@@ -35919,7 +35919,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP107 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
@@ -35931,7 +35931,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				}
 			],
@@ -35945,7 +35945,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -35971,11 +35971,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA25 T",
 					"color": "primary"
 				},
 				{
@@ -36517,7 +36517,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA38 T",
 					"color": "primary"
 				},
 				{
@@ -37671,7 +37671,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -37683,7 +37683,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				}
 			],
@@ -37697,7 +37697,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -37709,7 +37709,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				}
 			],
@@ -37723,7 +37723,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UEN008 LP104 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -37749,7 +37749,7 @@
 					"color": ""
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -37779,7 +37779,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
@@ -37805,7 +37805,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 LP104 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -37823,7 +37823,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -37849,7 +37849,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
@@ -37875,7 +37875,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -37887,7 +37887,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -37913,7 +37913,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -37939,7 +37939,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
@@ -38111,7 +38111,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 TA20 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				},
 				{
@@ -38649,7 +38649,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA18 T",
 					"color": "primary"
 				}
 			],
@@ -39503,7 +39503,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA16 T",
 					"color": "primary"
 				},
 				{
@@ -39635,7 +39635,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 LP106 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -39643,7 +39643,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA23 T",
 					"color": "primary"
 				}
 			],
@@ -39661,7 +39661,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LP106 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -39687,7 +39687,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 LP106 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -39713,7 +39713,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP106 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -39735,7 +39735,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
@@ -39747,7 +39747,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				}
 			],
@@ -39761,7 +39761,7 @@
 					"color": ""
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				},
 				{
@@ -39773,7 +39773,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP104 L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
 					"color": "danger"
 				}
 			],
@@ -39795,7 +39795,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 LP104 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -39821,7 +39821,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
@@ -39861,11 +39861,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA022 LP104 L",
+					"course": "UMA022 L",
 					"color": "danger"
 				},
 				{
-					"course": "UEN008 LP106 L",
+					"course": "UEN008 L",
 					"color": "danger"
 				},
 				{
@@ -39887,11 +39887,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "APPLIED CHEMISTRY LP104 L",
+					"course": "APPLIED CHEMISTRY L",
 					"color": "danger"
 				},
 				{
-					"course": "UES103 LP106 L",
+					"course": "UES103 L",
 					"color": "danger"
 				},
 				{
@@ -40479,7 +40479,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 TA25 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				}
 			],
@@ -41225,7 +41225,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 TA16 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				},
 				{
@@ -42009,7 +42009,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 TA38 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				},
 				{
@@ -43353,7 +43353,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UMA022 T",
+					"course": "UMA022 TA19 T",
 					"color": "primary"
 				}
 			],
@@ -43577,7 +43577,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43603,7 +43603,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UEN008 L",
+					"course": "UEN008 LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43629,7 +43629,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43637,7 +43637,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43659,11 +43659,11 @@
 					"color": "primary"
 				},
 				{
-					"course": "UMA022 L",
+					"course": "UMA022 LP106 L",
 					"color": "danger"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43685,11 +43685,11 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP106 L",
 					"color": "danger"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43703,7 +43703,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43719,7 +43719,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UES103 L",
+					"course": "UES103 LP106 L",
 					"color": "danger"
 				}
 			],
@@ -43745,7 +43745,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP106 L",
 					"color": "danger"
 				}
 			],
@@ -43771,7 +43771,7 @@
 					"color": "success"
 				},
 				{
-					"course": "APPLIED CHEMISTRY L",
+					"course": "APPLIED CHEMISTRY LP106 L",
 					"color": "danger"
 				}
 			],
@@ -43781,7 +43781,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING L",
+					"course": "ELECTRICAL \u0026 ELECTRONIC ENGINEERING LP106 L",
 					"color": "danger"
 				},
 				{
@@ -43797,7 +43797,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UMA022 TA17 T",
+					"course": "UMA022 T",
 					"color": "primary"
 				}
 			],
@@ -43807,7 +43807,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UEN008 L",
+					"course": "UEN008 LP106 L",
 					"color": "danger"
 				},
 				{
@@ -45533,7 +45533,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "INTRODUCTORY MATHEMATICS II TA10 T",
+					"course": "INTRODUCTORY MATHEMATICS II T",
 					"color": "primary"
 				},
 				{
@@ -45937,7 +45937,7 @@
 					"color": ""
 				},
 				{
-					"course": "INTRODUCTORY MATHEMATICS II T",
+					"course": "INTRODUCTORY MATHEMATICS II TA10 T",
 					"color": "primary"
 				},
 				{
@@ -48935,8 +48935,8 @@
 					"color": "success"
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT-I (MANGONEL) L",
-					"color": "danger"
+					"course": "ENGINEERING DESIGN PROJECT-I (MANGONEL) LT301 LT103 L",
+					"color": "info"
 				},
 				{
 					"course": "",
@@ -49963,7 +49963,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "ENGINEERING MATERIALS TA29 T",
+					"course": "ENGINEERING MATERIALS T",
 					"color": "primary"
 				},
 				{
@@ -50425,7 +50425,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "ENGINEERING MATERIALS T",
+					"course": "ENGINEERING MATERIALS TA29 T",
 					"color": "primary"
 				},
 				{
@@ -60303,8 +60303,8 @@
 					"color": "success"
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT-I (MANGONEL) L",
-					"color": "danger"
+					"course": "ENGINEERING DESIGN PROJECT-I (MANGONEL) LT301 LT103 L",
+					"color": "info"
 				},
 				{
 					"course": "",
@@ -74923,11 +74923,11 @@
 					"color": "warning"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT102 L",
 					"color": "danger"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT102 L",
 					"color": "danger"
 				}
 			],
@@ -74949,7 +74949,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT102 L",
 					"color": "danger"
 				},
 				{
@@ -74971,7 +74971,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75023,7 +75023,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75049,7 +75049,7 @@
 					"color": ""
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT - II L",
+					"course": "ENGINEERING DESIGN PROJECT - II LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75109,7 +75109,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT102 L",
 					"color": "danger"
 				}
 			],
@@ -75135,7 +75135,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT102 L",
 					"color": "danger"
 				}
 			],
@@ -75145,7 +75145,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75171,7 +75171,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75311,15 +75311,15 @@
 					"color": "warning"
 				},
 				{
-					"course": "UCS321 L",
+					"course": "UCS321 LT302 L",
 					"color": "danger"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT102 L",
 					"color": "danger"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT102 L",
 					"color": "danger"
 				}
 			],
@@ -75337,11 +75337,11 @@
 					"color": ""
 				},
 				{
-					"course": "UCS321 L",
+					"course": "UCS321 LT302 L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75363,7 +75363,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75415,7 +75415,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75441,7 +75441,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT - II L",
+					"course": "ENGINEERING DESIGN PROJECT - II LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75501,7 +75501,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT102 L",
 					"color": "danger"
 				}
 			],
@@ -75527,7 +75527,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT102 L",
 					"color": "danger"
 				}
 			],
@@ -75537,7 +75537,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75549,7 +75549,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UCS321 P",
+					"course": "UCS321 LP106 P",
 					"color": "warning"
 				},
 				{
@@ -75563,7 +75563,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT102 L",
 					"color": "danger"
 				},
 				{
@@ -75575,7 +75575,7 @@
 					"color": ""
 				},
 				{
-					"course": "UCS321 P",
+					"course": "UCS321 LP106 P",
 					"color": "warning"
 				},
 				{
@@ -77501,7 +77501,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UCS321 L",
+					"course": "UCS321 LT301 L",
 					"color": "danger"
 				},
 				{
@@ -77513,7 +77513,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UCS321 P",
+					"course": "UCS321 LT401 P",
 					"color": "warning"
 				}
 			],
@@ -77527,7 +77527,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UCS321 L",
+					"course": "UCS321 LT301 L",
 					"color": "danger"
 				},
 				{
@@ -77539,7 +77539,7 @@
 					"color": ""
 				},
 				{
-					"course": "UCS321 P",
+					"course": "UCS321 LT401 P",
 					"color": "warning"
 				}
 			],
@@ -78939,11 +78939,11 @@
 					"color": "danger"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT301 L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT301 L",
 					"color": "danger"
 				},
 				{
@@ -78951,7 +78951,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT302 L",
 					"color": "danger"
 				}
 			],
@@ -78965,11 +78965,11 @@
 					"color": "danger"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT301 L",
 					"color": "danger"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT301 L",
 					"color": "danger"
 				},
 				{
@@ -78977,7 +78977,7 @@
 					"color": "success"
 				},
 				{
-					"course": "COMPUTER NETWORKS L",
+					"course": "COMPUTER NETWORKS LT302 L",
 					"color": "danger"
 				}
 			],
@@ -78999,7 +78999,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT302 L",
 					"color": "danger"
 				},
 				{
@@ -79025,7 +79025,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT302 L",
 					"color": "danger"
 				},
 				{
@@ -79051,7 +79051,7 @@
 					"color": ""
 				},
 				{
-					"course": "COMPUTER NETWORKS L",
+					"course": "COMPUTER NETWORKS LT302 L",
 					"color": "danger"
 				},
 				{
@@ -79065,7 +79065,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT - II L",
+					"course": "ENGINEERING DESIGN PROJECT - II LT301 L",
 					"color": "danger"
 				},
 				{
@@ -79073,15 +79073,15 @@
 					"color": "warning"
 				},
 				{
-					"course": "UCS321 L",
+					"course": "UCS321 LT301 L",
 					"color": "danger"
 				},
 				{
-					"course": "UCS321 P",
+					"course": "UCS321 LT302 P",
 					"color": "warning"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM L",
+					"course": "DATABASE MANAGEMENT SYSTEM LT301 L",
 					"color": "danger"
 				}
 			],
@@ -79091,7 +79091,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "COMPUTER NETWORKS L",
+					"course": "COMPUTER NETWORKS LT301 L",
 					"color": "danger"
 				},
 				{
@@ -79099,15 +79099,15 @@
 					"color": ""
 				},
 				{
-					"course": "UCS321 L",
+					"course": "UCS321 LT301 L",
 					"color": "danger"
 				},
 				{
-					"course": "UCS321 P",
+					"course": "UCS321 LT302 P",
 					"color": "warning"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT301 L",
 					"color": "danger"
 				}
 			],
@@ -86671,11 +86671,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT302 L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
 					"color": "danger"
 				},
 				{
-					"course": "UTD003 LT102 L",
+					"course": "UTD003 L",
 					"color": "danger"
 				},
 				{
@@ -86687,7 +86687,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UCS321 LT401 P",
+					"course": "UCS321 P",
 					"color": "warning"
 				}
 			],
@@ -86697,11 +86697,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA401 LT302 L",
+					"course": "UMA401 L",
 					"color": "danger"
 				},
 				{
-					"course": "UTD003 LT102 L",
+					"course": "UTD003 L",
 					"color": "danger"
 				},
 				{
@@ -86713,7 +86713,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UCS321 LT401 P",
+					"course": "UCS321 P",
 					"color": "warning"
 				}
 			],
@@ -86723,7 +86723,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "COMPUTER NETWORKS LT302 L",
+					"course": "COMPUTER NETWORKS L",
 					"color": "danger"
 				},
 				{
@@ -86731,7 +86731,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UCS321 LT301 L",
+					"course": "UCS321 L",
 					"color": "danger"
 				},
 				{
@@ -86739,7 +86739,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT401 L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
 					"color": "danger"
 				}
 			],
@@ -86749,7 +86749,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM LT302 L",
+					"course": "DATABASE MANAGEMENT SYSTEM L",
 					"color": "danger"
 				},
 				{
@@ -86757,7 +86757,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UCS321 LT301 L",
+					"course": "UCS321 L",
 					"color": "danger"
 				},
 				{
@@ -86765,7 +86765,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM LT401 L",
+					"course": "DATABASE MANAGEMENT SYSTEM L",
 					"color": "danger"
 				}
 			],
@@ -86779,7 +86779,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 LT303 L",
+					"course": "UMA401 L",
 					"color": "danger"
 				},
 				{
@@ -86805,7 +86805,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM LT303 L",
+					"course": "DATABASE MANAGEMENT SYSTEM L",
 					"color": "danger"
 				},
 				{
@@ -86835,7 +86835,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT302 L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
 					"color": "danger"
 				},
 				{
@@ -86861,7 +86861,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 LT302 L",
+					"course": "UMA401 L",
 					"color": "danger"
 				},
 				{
@@ -86887,7 +86887,7 @@
 					"color": "success"
 				},
 				{
-					"course": "COMPUTER NETWORKS LT302 L",
+					"course": "COMPUTER NETWORKS L",
 					"color": "danger"
 				},
 				{
@@ -86917,7 +86917,7 @@
 					"color": "success"
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT - II LT303 L",
+					"course": "ENGINEERING DESIGN PROJECT - II L",
 					"color": "danger"
 				},
 				{
@@ -86943,7 +86943,7 @@
 					"color": "success"
 				},
 				{
-					"course": "COMPUTER NETWORKS LT303 L",
+					"course": "COMPUTER NETWORKS L",
 					"color": "danger"
 				},
 				{
@@ -95299,7 +95299,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 LT303 L",
+					"course": "UMA401 L",
 					"color": "danger"
 				},
 				{
@@ -95307,7 +95307,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT303 L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
 					"color": "danger"
 				},
 				{
@@ -95325,7 +95325,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT303 L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
 					"color": "danger"
 				},
 				{
@@ -95333,7 +95333,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM LT303 L",
+					"course": "DATABASE MANAGEMENT SYSTEM L",
 					"color": "danger"
 				},
 				{
@@ -95363,7 +95363,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM LT303 L",
+					"course": "DATABASE MANAGEMENT SYSTEM L",
 					"color": "danger"
 				}
 			],
@@ -95389,7 +95389,7 @@
 					"color": ""
 				},
 				{
-					"course": "UMA401 LT303 L",
+					"course": "UMA401 L",
 					"color": "danger"
 				}
 			],
@@ -95451,7 +95451,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "ENGINEERING DESIGN PROJECT - II LT303 L",
+					"course": "ENGINEERING DESIGN PROJECT - II L",
 					"color": "danger"
 				},
 				{
@@ -95477,7 +95477,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "COMPUTER NETWORKS LT303 L",
+					"course": "COMPUTER NETWORKS L",
 					"color": "danger"
 				},
 				{
@@ -95485,11 +95485,11 @@
 					"color": "danger"
 				},
 				{
-					"course": "COMPUTER NETWORKS LT303 L",
+					"course": "COMPUTER NETWORKS L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA401 LT401 L",
+					"course": "UMA401 L",
 					"color": "danger"
 				},
 				{
@@ -95503,19 +95503,19 @@
 					"color": "dark"
 				},
 				{
-					"course": "DATABASE MANAGEMENT SYSTEM LT303 L",
+					"course": "DATABASE MANAGEMENT SYSTEM L",
 					"color": "danger"
 				},
 				{
-					"course": "UCS321 LT303 L",
+					"course": "UCS321 L",
 					"color": "danger"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT303 L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
 					"color": "danger"
 				},
 				{
-					"course": "COMPUTER NETWORKS LT401 L",
+					"course": "COMPUTER NETWORKS L",
 					"color": "danger"
 				},
 				{
@@ -95529,11 +95529,11 @@
 					"color": "dark"
 				},
 				{
-					"course": "UCS321 LT303 P",
+					"course": "UCS321 P",
 					"color": "warning"
 				},
 				{
-					"course": "UCS321 LT303 L",
+					"course": "UCS321 L",
 					"color": "danger"
 				},
 				{
@@ -95555,7 +95555,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UCS321 LT303 P",
+					"course": "UCS321 P",
 					"color": "warning"
 				},
 				{
@@ -97651,7 +97651,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UTD003 L",
+					"course": "UTD003 LT102 L",
 					"color": "danger"
 				},
 				{
@@ -97659,7 +97659,7 @@
 					"color": "success"
 				},
 				{
-					"course": "DISCRETE MATHEMATICAL STRUCTURES L",
+					"course": "DISCRETE MATHEMATICAL STRUCTURES LT401 L",
 					"color": "danger"
 				},
 				{
@@ -97677,7 +97677,7 @@
 					"color": "success"
 				},
 				{
-					"course": "EMPLOYABILITY DEVELOPMENT SKILLS L",
+					"course": "EMPLOYABILITY DEVELOPMENT SKILLS LT102 L",
 					"color": "danger"
 				},
 				{
@@ -97685,7 +97685,7 @@
 					"color": "success"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT401 L",
 					"color": "danger"
 				},
 				{
@@ -97755,11 +97755,11 @@
 					"color": "success"
 				},
 				{
-					"course": "UAI402 L",
+					"course": "UAI402 LT401 L",
 					"color": "danger"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT401 L",
 					"color": "danger"
 				},
 				{
@@ -97767,7 +97767,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UAI402 L",
+					"course": "UAI402 LT401 L",
 					"color": "danger"
 				}
 			],
@@ -97781,11 +97781,11 @@
 					"color": "success"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT401 L",
 					"color": "danger"
 				},
 				{
-					"course": "UAI402 L",
+					"course": "UAI402 LT401 L",
 					"color": "danger"
 				},
 				{
@@ -97793,7 +97793,7 @@
 					"color": ""
 				},
 				{
-					"course": "DISCRETE MATHEMATICAL STRUCTURES L",
+					"course": "DISCRETE MATHEMATICAL STRUCTURES LT401 L",
 					"color": "danger"
 				}
 			],
@@ -97803,7 +97803,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UMA401 L",
+					"course": "UMA401 LT301 L",
 					"color": "danger"
 				},
 				{
@@ -97829,7 +97829,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT301 L",
 					"color": "danger"
 				},
 				{
@@ -97855,7 +97855,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UTAXXX L",
+					"course": "UTAXXX L LT301",
 					"color": ""
 				},
 				{
@@ -97889,7 +97889,7 @@
 					"color": ""
 				},
 				{
-					"course": "DISCRETE MATHEMATICAL STRUCTURES L",
+					"course": "DISCRETE MATHEMATICAL STRUCTURES LT401 L",
 					"color": "danger"
 				},
 				{
@@ -97915,7 +97915,7 @@
 					"color": ""
 				},
 				{
-					"course": "DESIGN AND ANALYSIS OF ALGORITHMS L",
+					"course": "DESIGN AND ANALYSIS OF ALGORITHMS LT401 L",
 					"color": "danger"
 				},
 				{
@@ -99423,7 +99423,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "UTAXXX L SAK",
+					"course": "UTAXXX L",
 					"color": ""
 				},
 				{
@@ -112367,7 +112367,7 @@
 					"color": ""
 				},
 				{
-					"course": "MODERN CONTROL THEORY APC11 T",
+					"course": "MODERN CONTROL THEORY T",
 					"color": "primary"
 				},
 				{
@@ -116261,7 +116261,7 @@
 					"color": "info"
 				},
 				{
-					"course": "UEC519 T",
+					"course": "UEC519 APC13 T",
 					"color": "primary"
 				},
 				{
@@ -117677,7 +117677,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UEC519 T",
+					"course": "UEC519 APC13 T",
 					"color": "primary"
 				},
 				{
@@ -124211,7 +124211,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "DERIVATIVES PRICING, TRADING AND STRATEGIES L",
+					"course": "DERIVATIVES PRICING, TRADING AND STRATEGIES LT101 L",
 					"color": "danger"
 				},
 				{
@@ -125697,7 +125697,7 @@
 					"color": ""
 				},
 				{
-					"course": "MODERN CONTROL THEORY T",
+					"course": "MODERN CONTROL THEORY APC11 T",
 					"color": "primary"
 				},
 				{
@@ -126347,7 +126347,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "MODERN CONTROL THEORY APC11 T",
+					"course": "MODERN CONTROL THEORY T",
 					"color": "primary"
 				},
 				{
@@ -129221,7 +129221,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "CAPSTONE LECTURE",
+					"course": "CAPSTONE LECTURE F105/F106",
 					"color": ""
 				},
 				{
@@ -132357,7 +132357,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "CAPSTONE LECTURE SSM",
+					"course": "CAPSTONE LECTURE",
 					"color": ""
 				},
 				{
@@ -135471,7 +135471,7 @@
 					"color": "info"
 				},
 				{
-					"course": "UEC519 APC13 T",
+					"course": "UEC519 T",
 					"color": "primary"
 				},
 				{
@@ -136547,7 +136547,7 @@
 					"color": "info"
 				},
 				{
-					"course": "UEC519 T",
+					"course": "UEC519 APC12 T",
 					"color": "primary"
 				},
 				{
@@ -136887,7 +136887,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "UEC519 APC13 T",
+					"course": "UEC519 T",
 					"color": "primary"
 				},
 				{
@@ -143191,7 +143191,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "INNOVATION AND ENTREPRENEURSHIP L",
+					"course": "INNOVATION AND ENTREPRENEURSHIP LT303 L",
 					"color": "danger"
 				},
 				{
@@ -143247,7 +143247,7 @@
 					"color": "info"
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES L",
+					"course": "OPTIMIZATION TECHNIQUES LT102 L",
 					"color": "danger"
 				}
 			],
@@ -143273,7 +143273,7 @@
 					"color": "success"
 				},
 				{
-					"course": "THEORY OF COMPUTATION L",
+					"course": "THEORY OF COMPUTATION LT102 L",
 					"color": "danger"
 				}
 			],
@@ -143287,7 +143287,7 @@
 					"color": "primary"
 				},
 				{
-					"course": "MICROPROCESSOR-BASED SYSTEMS DESIGN L",
+					"course": "MICROPROCESSOR-BASED SYSTEMS DESIGN LT103 L",
 					"color": "danger"
 				},
 				{
@@ -143313,7 +143313,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "THEORY OF COMPUTATION L",
+					"course": "THEORY OF COMPUTATION LT103 L",
 					"color": "danger"
 				},
 				{
@@ -143339,7 +143339,7 @@
 					"color": ""
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES L",
+					"course": "OPTIMIZATION TECHNIQUES LT103 L",
 					"color": "danger"
 				},
 				{
@@ -144759,7 +144759,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "INNOVATION AND ENTREPRENEURSHIP L",
+					"course": "INNOVATION AND ENTREPRENEURSHIP LP107 L",
 					"color": "danger"
 				},
 				{
@@ -153375,8 +153375,8 @@
 					"color": "warning"
 				},
 				{
-					"course": "PARALLEL \u0026 DISTRIBUTED COMPUTING GAME DESIGN AND DEVELOPMENT CYBER FORENSICS CONTINUOUS INTEGRATION AND CONTINUOUS DEPLOYMENT TEST AUTOMATION CONVERSATIONAL AI: SPEECH PROCESSING AND SYNTHESIS UCS671 UCS673 DEEP LEARNING UCS675 L",
-					"color": "danger"
+					"course": "PARALLEL \u0026 DISTRIBUTED COMPUTING GAME DESIGN AND DEVELOPMENT CYBER FORENSICS CONTINUOUS INTEGRATION AND CONTINUOUS DEPLOYMENT TEST AUTOMATION CONVERSATIONAL AI: SPEECH PROCESSING AND SYNTHESIS UCS671 UCS673 DEEP LEARNING UCS675 LT302 LP109 LP108 LT102 LT401 LT303 LT103 L",
+					"color": "info"
 				},
 				{
 					"course": "UCS674 BUILD AND RELEASE MANAGEMENT SECURE CODING 3D MODELLING AND ANIMATION UCS671 P",
@@ -153401,8 +153401,8 @@
 					"color": ""
 				},
 				{
-					"course": "PARALLEL \u0026 DISTRIBUTED COMPUTING GAME DESIGN AND DEVELOPMENT CYBER FORENSICS CONTINUOUS INTEGRATION AND CONTINUOUS DEPLOYMENT TEST AUTOMATION CONVERSATIONAL AI: SPEECH PROCESSING AND SYNTHESIS UCS671 UCS673 DEEP LEARNING UCS675 L",
-					"color": "danger"
+					"course": "PARALLEL \u0026 DISTRIBUTED COMPUTING GAME DESIGN AND DEVELOPMENT CYBER FORENSICS CONTINUOUS INTEGRATION AND CONTINUOUS DEPLOYMENT TEST AUTOMATION CONVERSATIONAL AI: SPEECH PROCESSING AND SYNTHESIS UCS671 UCS673 DEEP LEARNING UCS675 LT302 LP109 LP108 LT102 LT401 LT303 LT103 L",
+					"color": "info"
 				},
 				{
 					"course": "LAB GS/MNK/ASA/ST/JHB",
@@ -154207,7 +154207,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES LT401 L",
+					"course": "OPTIMIZATION TECHNIQUES L",
 					"color": "danger"
 				},
 				{
@@ -154233,7 +154233,7 @@
 					"color": "dark"
 				},
 				{
-					"course": "THEORY OF COMPUTATION LT401 L",
+					"course": "THEORY OF COMPUTATION L",
 					"color": "danger"
 				},
 				{
@@ -154267,7 +154267,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "MICROPROCESSOR-BASED SYSTEMS DESIGN LP106 L",
+					"course": "MICROPROCESSOR-BASED SYSTEMS DESIGN L",
 					"color": "danger"
 				},
 				{
@@ -154293,7 +154293,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES LP106 L",
+					"course": "OPTIMIZATION TECHNIQUES L",
 					"color": "danger"
 				},
 				{
@@ -154319,7 +154319,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "INNOVATION AND ENTREPRENEURSHIP LP106 L",
+					"course": "INNOVATION AND ENTREPRENEURSHIP L",
 					"color": "danger"
 				},
 				{
@@ -156951,8 +156951,8 @@
 					"color": "dark"
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES L",
-					"color": "danger"
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "INNOVATION AND ENTREPRENEURSHIP L",
@@ -158087,7 +158087,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "THEORY OF COMPUTATION L",
+					"course": "THEORY OF COMPUTATION LT403 L",
 					"color": "danger"
 				},
 				{
@@ -158131,8 +158131,8 @@
 					"color": "success"
 				},
 				{
-					"course": "ADT",
-					"color": ""
+					"course": "THEORY OF COMPUTATION T",
+					"color": "primary"
 				},
 				{
 					"course": "THEORY OF COMPUTATION L",
@@ -159595,11 +159595,11 @@
 					"color": "success"
 				},
 				{
-					"course": "THEORY OF COMPUTATION LT402 L",
+					"course": "THEORY OF COMPUTATION L",
 					"color": "danger"
 				},
 				{
-					"course": "QUANTUM COMPUTING LT402 L",
+					"course": "QUANTUM COMPUTING L",
 					"color": "danger"
 				},
 				{
@@ -159621,11 +159621,11 @@
 					"color": "success"
 				},
 				{
-					"course": "QUANTUM COMPUTING LT402 L",
+					"course": "QUANTUM COMPUTING L",
 					"color": "danger"
 				},
 				{
-					"course": "THEORY OF COMPUTATION LT402 L",
+					"course": "THEORY OF COMPUTATION L",
 					"color": "danger"
 				},
 				{
@@ -159651,7 +159651,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "INNOVATION AND ENTREPRENEURSHIP LT402 L",
+					"course": "INNOVATION AND ENTREPRENEURSHIP L",
 					"color": "danger"
 				},
 				{
@@ -159677,7 +159677,7 @@
 					"color": "danger"
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES LT402 L",
+					"course": "OPTIMIZATION TECHNIQUES L",
 					"color": "danger"
 				},
 				{
@@ -159733,7 +159733,7 @@
 					"color": ""
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES LT402 L",
+					"course": "OPTIMIZATION TECHNIQUES L",
 					"color": "danger"
 				},
 				{
@@ -159763,7 +159763,7 @@
 					"color": "success"
 				},
 				{
-					"course": "QUANTUM COMPUTING LT401 L",
+					"course": "QUANTUM COMPUTING L",
 					"color": "danger"
 				}
 			],
@@ -159789,7 +159789,7 @@
 					"color": "warning"
 				},
 				{
-					"course": "OPTIMIZATION TECHNIQUES LT401 L",
+					"course": "OPTIMIZATION TECHNIQUES L",
 					"color": "danger"
 				}
 			],
@@ -159815,7 +159815,7 @@
 					"color": ""
 				},
 				{
-					"course": "THEORY OF COMPUTATION LT401 L",
+					"course": "THEORY OF COMPUTATION L",
 					"color": "danger"
 				}
 			],
@@ -165615,8 +165615,8 @@
 					"color": "success"
 				},
 				{
-					"course": "SHR/ABK",
-					"color": ""
+					"course": "PRESTRESSED CONCRETE STRUCTURES UCE853 T",
+					"color": "info"
 				},
 				{
 					"course": "",
@@ -180107,16 +180107,16 @@
 					"color": "dark"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ENERGY AUDITING AND MANAGEMENT L",
+					"color": "danger"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ENERGY AUDITING AND MANAGEMENT L",
+					"color": "danger"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "POWER GENERATION AND ECONOMICS L",
+					"color": "danger"
 				},
 				{
 					"course": "",
@@ -180167,8 +180167,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ENERGY AUDITING AND MANAGEMENT L",
+					"color": "danger"
 				},
 				{
 					"course": "",
@@ -180185,16 +180185,16 @@
 					"color": "dark"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "POWER GENERATION AND ECONOMICS L",
+					"color": "danger"
 				},
 				{
 					"course": "",
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ENERGY AUDITING AND MANAGEMENT T",
+					"color": "primary"
 				},
 				{
 					"course": "",
@@ -180215,8 +180215,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "POWER GENERATION AND ECONOMICS L",
+					"color": "danger"
 				},
 				{
 					"course": "",
@@ -180241,8 +180241,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "POWER GENERATION AND ECONOMICS T",
+					"color": "primary"
 				},
 				{
 					"course": "",
@@ -181587,8 +181587,8 @@
 					"color": "success"
 				},
 				{
-					"course": "FUNDAMENTALS OF MICROPROCESSORS AND MICROCONTROLLERS L",
-					"color": "danger"
+					"course": "",
+					"color": "success"
 				}
 			],
 			[
@@ -181605,16 +181605,16 @@
 					"color": "success"
 				},
 				{
-					"course": "FUNDAMENTALS OF MICROPROCESSORS AND MICROCONTROLLERS L",
-					"color": "danger"
+					"course": "",
+					"color": "success"
 				},
 				{
-					"course": "FUNDAMENTALS OF MICROPROCESSORS AND MICROCONTROLLERS L",
-					"color": "danger"
+					"course": "",
+					"color": "success"
 				},
 				{
-					"course": "FUNDAMENTALS OF MICROPROCESSORS AND MICROCONTROLLERS P",
-					"color": "warning"
+					"course": "",
+					"color": "success"
 				}
 			],
 			[
@@ -181639,8 +181639,8 @@
 					"color": "success"
 				},
 				{
-					"course": "LAB DND",
-					"color": ""
+					"course": "",
+					"color": "success"
 				}
 			],
 			[
@@ -181753,8 +181753,8 @@
 					"color": "dark"
 				},
 				{
-					"course": "BIOMETRICS L",
-					"color": "danger"
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "",
@@ -181779,10 +181779,6 @@
 					"color": "dark"
 				},
 				{
-					"course": "BIOMETRICS L",
-					"color": "danger"
-				},
-				{
 					"course": "",
 					"color": "success"
 				},
@@ -181791,8 +181787,12 @@
 					"color": "success"
 				},
 				{
-					"course": "BIOMETRICS P",
-					"color": "warning"
+					"course": "",
+					"color": "success"
+				},
+				{
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "",
@@ -181817,8 +181817,8 @@
 					"color": "success"
 				},
 				{
-					"course": "LAB DBM",
-					"color": ""
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "",
@@ -188643,8 +188643,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "SOCIAL NETWORK ANALYSIS P",
+					"color": "warning"
 				}
 			],
 			[
@@ -188669,8 +188669,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "LAB ALK",
+					"color": ""
 				}
 			],
 			[
@@ -188695,8 +188695,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ETHICAL HACKING P",
+					"color": "warning"
 				}
 			],
 			[
@@ -188721,8 +188721,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "LAB ADG",
+					"color": ""
 				}
 			],
 			[
@@ -188843,12 +188843,12 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "SOCIAL NETWORK ANALYSIS L",
+					"color": "danger"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ETHICAL HACKING L",
+					"color": "danger"
 				},
 				{
 					"course": "",
@@ -188869,12 +188869,12 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "SOCIAL NETWORK ANALYSIS L",
+					"color": "danger"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "ETHICAL HACKING L",
+					"color": "danger"
 				},
 				{
 					"course": "",
@@ -190207,8 +190207,8 @@
 					"color": "success"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "CONCEPTS IN BIOMEDICAL INSTRUMENTATION P",
+					"color": "warning"
 				},
 				{
 					"course": "",
@@ -190367,8 +190367,8 @@
 					"color": "success"
 				},
 				{
-					"course": "ENVIRONMENTAL BIOTECHNOLOGY P",
-					"color": "warning"
+					"course": "",
+					"color": "success"
 				}
 			],
 			[
@@ -190381,8 +190381,8 @@
 					"color": "success"
 				},
 				{
-					"course": "NANO-BIOTECHNOLOGY T",
-					"color": "primary"
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "",
@@ -190393,8 +190393,8 @@
 					"color": "danger"
 				},
 				{
-					"course": "Mol. Bio Lab",
-					"color": ""
+					"course": "",
+					"color": "success"
 				}
 			],
 			[
@@ -190403,16 +190403,16 @@
 					"color": "dark"
 				},
 				{
-					"course": "CONCEPTS IN BIOMEDICAL INSTRUMENTATION P",
-					"color": "warning"
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "UBT843 ENVIRONMENTAL BIOTECHNOLOGY P",
 					"color": "warning"
 				},
 				{
-					"course": "",
-					"color": "success"
+					"course": "NANO-BIOTECHNOLOGY T",
+					"color": "primary"
 				},
 				{
 					"course": "UBT843 P",
@@ -190429,8 +190429,8 @@
 					"color": "dark"
 				},
 				{
-					"course": "IEE Lab",
-					"color": ""
+					"course": "",
+					"color": "success"
 				},
 				{
 					"course": "",

@@ -2,77 +2,97 @@ package utils
 
 import (
 	"encoding/json"
+	"log"
 	"os"
 	"strings"
 
 	"github.com/xuri/excelize/v2"
 )
 
+var excludedSheets = map[string]bool{
+	"2ND ECE":          true,
+	"2ND YEAR ECE ENC": true,
+	"3RD ECE":          true,
+	"4TH ECE":          true,
+	"4TH YEAR B":       true,
+	"DLIT":             true,
+	"PG TIME TABLE":    true,
+	"PG TIME TABLE 1":  true,
+	"PG TIME TABLE1":   true,
+}
+
+
 func GenerateJson() {
 	f, err := excelize.OpenFile("timetable1.xlsx")
+	if err != nil {
+		log.Printf("[ERROR] GenerateJson: cannot open timetable1.xlsx: %v", err)
+		return
+	}
 	defer func() {
-		if err = f.Close(); err != nil {
-			panic(err)
+		if err := f.Close(); err != nil {
+			log.Printf("[ERROR] GenerateJson: error closing workbook: %v", err)
 		}
 	}()
-	HandleError(err)
+
 	sheets := f.GetSheetList()
+	data := make(map[string]map[string][][]Data)
 
-	// Define categories to exclude
-	excludedCategories := map[string]bool{
-		"2ND ECE":          true,
-		"2ND YEAR ECE ENC": true,
-		"3RD ECE":          true,
-		"4TH ECE":          true,
-		"4TH YEAR B":       true,
-		"DLIT":             true,
-		"PG TIME TABLE":    true,
-		"PG TIME TABLE 1":  true,
-		"PG TIME TABLE1":   true,
-	}
-
-	classes := make(map[string]map[int]string)
 	for _, sheet := range sheets {
-		// Skip excluded categories
-		if excludedCategories[sheet] {
+		if excludedSheets[sheet] {
+			log.Printf("[INFO] Skipping excluded sheet %q", sheet)
 			continue
 		}
 
-		temp := make(map[int]string)
-		rows, err := f.GetRows(sheet)
-		for i, d := range rows {
-			if i == 4 {
-				for j, k := range d {
-					if k != "" && k != "DAY" && k != "HOURS" && k != "SR NO" && k != "SR.NO" && k != "TUTORIAL" {
-						// Add bounds checking for column number (Excel supports 1-16384)
-						colNum := j + 1
-						if colNum >= 1 && colNum <= 16384 {
-							temp[colNum] = k
-						}
-					}
-				}
-			}
+
+		grid, err := FlattenSheet(f, sheet)
+		if err != nil {
+			log.Printf("[WARN] Skipping sheet %q: %v", sheet, err)
+			continue
 		}
-		classes[sheet] = temp
-		HandleError(err)
+
+		bounds, err := DetectGridBounds(grid, sheet)
+		if err != nil {
+			log.Printf("[WARN] Skipping sheet %q: %v", sheet, err)
+			continue
+		}
+
+		log.Printf("[INFO] Sheet %q: headerRow=%d, dataRows=%d–%d, dayCol=%d, timeCol=%d, %d class(es)",
+			sheet, bounds.HeaderRow, bounds.DataStartRow, bounds.DataEndRow, bounds.DayCol, bounds.TimeCol, len(bounds.ClassColumns))
+
+		classData := make(map[string][][]Data)
+		for col, className := range bounds.ClassColumns {
+			className = strings.TrimSpace(className)
+			if className == "" {
+				continue
+			}
+			table := GetTableData(grid, bounds, col, sheet)
+			classData[className] = table
+		}
+
+		if len(classData) > 0 {
+			data[strings.TrimSpace(sheet)] = classData
+		}
 	}
-	ExcelToJson(classes, f)
+
+	ExcelToJson(data)
 }
 
-func ExcelToJson(classes map[string]map[int]string, f *excelize.File) {
-	file, err := os.OpenFile("./data.json", os.O_TRUNC|os.O_WRONLY, os.ModeAppend)
-	HandleError(err)
-	defer file.Close()
-	data := make(map[string]map[string][][]Data)
-	for i, d := range classes {
-		temp := make(map[string][][]Data)
-		for j, k := range d {
-			tc := GetTableData(i, j, f)
-			temp[strings.Trim(k, " ")] = tc
-		}
-		data[strings.Trim(i, " ")] = temp
+func ExcelToJson(data map[string]map[string][][]Data) {
+	file, err := os.OpenFile("./data.json", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Printf("[ERROR] ExcelToJson: cannot open data.json for writing: %v", err)
+		return
 	}
-	dj, _ := json.MarshalIndent(data, "", "	")
+	defer file.Close()
+
+	dj, err := json.MarshalIndent(data, "", "\t")
+	if err != nil {
+		log.Printf("[ERROR] ExcelToJson: JSON marshal failed: %v", err)
+		return
+	}
+
 	_, err = file.Write(dj)
-	HandleError(err)
+	if err != nil {
+		log.Printf("[ERROR] ExcelToJson: write failed: %v", err)
+	}
 }
